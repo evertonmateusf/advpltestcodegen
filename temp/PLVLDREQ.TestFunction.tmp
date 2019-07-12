@@ -1,0 +1,16 @@
+
+//Test PLVLDREQ
+METHOD PLVLDREQ() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cNumReq := ''
+
+	oResult:activate()
+	
+	PLVLDREQ(cNumReq)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

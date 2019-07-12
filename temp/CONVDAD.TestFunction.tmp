@@ -1,0 +1,16 @@
+
+//Test CONVDAD
+METHOD CONVDAD() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local uVal := Nil
+
+	oResult:activate()
+	
+	CONVDAD(uVal)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

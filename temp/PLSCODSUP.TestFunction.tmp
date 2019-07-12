@@ -1,0 +1,17 @@
+
+//Test PLSCODSUP
+METHOD PLSCODSUP() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodigo := ''
+    Local cGruGen := ''
+
+	oResult:activate()
+	
+	PLSCODSUP(cCodigo,cGruGen)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

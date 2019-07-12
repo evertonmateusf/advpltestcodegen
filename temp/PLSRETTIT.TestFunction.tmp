@@ -1,0 +1,16 @@
+
+//Test PLSRETTIT
+METHOD PLSRETTIT() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cAlias := ''
+
+	oResult:activate()
+	
+	PLSRETTIT(cAlias)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

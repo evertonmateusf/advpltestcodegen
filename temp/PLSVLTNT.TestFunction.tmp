@@ -1,0 +1,16 @@
+
+//Test PLSVLTNT
+METHOD PLSVLTNT() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+
+
+	oResult:activate()
+	
+	PLSVLTNT()
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

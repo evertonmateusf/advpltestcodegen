@@ -1,0 +1,17 @@
+
+//Test PLSATUCS
+METHOD PLSATUCS() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cStaLib := ''
+    Local cAliCab := ''
+
+	oResult:activate()
+	
+	PLSATUCS(cStaLib,cAliCab)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

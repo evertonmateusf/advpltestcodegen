@@ -1,0 +1,16 @@
+
+//Test PLSCHKCRI
+METHOD PLSCHKCRI() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local aDadPar := {}
+
+	oResult:activate()
+	
+	PLSCHKCRI(aDadPar)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

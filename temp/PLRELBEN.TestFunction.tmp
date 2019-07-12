@@ -1,0 +1,16 @@
+
+//Test PLRELBEN
+METHOD PLRELBEN() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodUsr := ''
+
+	oResult:activate()
+	
+	PLRELBEN(cCodUsr)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

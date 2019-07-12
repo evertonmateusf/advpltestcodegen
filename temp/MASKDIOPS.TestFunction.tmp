@@ -1,0 +1,16 @@
+
+//Test MASKDIOPS
+METHOD MASKDIOPS() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cVlr := ''
+
+	oResult:activate()
+	
+	MASKDIOPS(cVlr)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

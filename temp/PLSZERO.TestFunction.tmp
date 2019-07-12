@@ -1,0 +1,17 @@
+
+//Test PLSZERO
+METHOD PLSZERO() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cVar := ''
+    Local nTam := 0
+
+	oResult:activate()
+	
+	PLSZERO(cVar,nTam)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

@@ -1,0 +1,17 @@
+
+//Test PLSRTMASPR
+METHOD PLSRTMASPR() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodPad := ''
+    Local cCodPSA := ''
+
+	oResult:activate()
+	
+	PLSRTMASPR(cCodPad,cCodPSA)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

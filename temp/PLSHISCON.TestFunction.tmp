@@ -1,0 +1,18 @@
+
+//Test PLSHISCON
+METHOD PLSHISCON() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cIdeRot := ''
+    Local cCodCha := ''
+    Local cTitulo := ''
+
+	oResult:activate()
+	
+	PLSHISCON(cIdeRot,cCodCha,cTitulo)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

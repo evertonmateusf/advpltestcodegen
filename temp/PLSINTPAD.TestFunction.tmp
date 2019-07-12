@@ -1,0 +1,16 @@
+
+//Test PLSINTPAD
+METHOD PLSINTPAD() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+
+
+	oResult:activate()
+	
+	PLSINTPAD()
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

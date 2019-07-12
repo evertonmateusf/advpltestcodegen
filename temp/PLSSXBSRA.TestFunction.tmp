@@ -1,0 +1,16 @@
+
+//Test PLSSXBSRA
+METHOD PLSSXBSRA() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+
+
+	oResult:activate()
+	
+	PLSSXBSRA()
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

@@ -1,0 +1,17 @@
+
+//Test PLIDSALD
+METHOD PLIDSALD() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local dDatsld := stod('')
+    Local cTpProc := ''
+
+	oResult:activate()
+	
+	PLIDSALD(dDatsld,cTpProc)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

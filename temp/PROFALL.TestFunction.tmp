@@ -1,0 +1,16 @@
+
+//Test PROFALL
+METHOD PROFALL() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cBusca := ''
+
+	oResult:activate()
+	
+	PROFALL(cBusca)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

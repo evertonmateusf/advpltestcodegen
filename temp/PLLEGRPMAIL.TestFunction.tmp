@@ -1,0 +1,16 @@
+
+//Test PLLEGRPMAIL
+METHOD PLLEGRPMAIL() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cEmail := ''
+
+	oResult:activate()
+	
+	PLLEGRPMAIL(cEmail)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

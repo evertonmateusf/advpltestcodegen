@@ -1,0 +1,18 @@
+
+//Test PLVLDPRE
+METHOD PLVLDPRE() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local aMat := {}
+    Local cTpAca := ''
+    Local cOrdDesc := ''
+
+	oResult:activate()
+	
+	PLVLDPRE(aMat,cTpAca,cOrdDesc)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

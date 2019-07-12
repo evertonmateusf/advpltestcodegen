@@ -1,0 +1,17 @@
+
+//Test PLSDIGI
+METHOD PLSDIGI() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodigo := ''
+    Local nModulo := 0
+
+	oResult:activate()
+	
+	PLSDIGI(cCodigo,nModulo)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

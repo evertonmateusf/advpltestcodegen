@@ -1,0 +1,20 @@
+
+//Test PLSHISGRV
+METHOD PLSHISGRV() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cIdeRot := ''
+    Local cCodCha := ''
+    Local cSeq := ''
+    Local cHistor := ''
+    Local lHist := .F.
+
+	oResult:activate()
+	
+	PLSHISGRV(cIdeRot,cCodCha,cSeq,cHistor,lHist)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

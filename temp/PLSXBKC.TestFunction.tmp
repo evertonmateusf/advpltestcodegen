@@ -1,0 +1,16 @@
+
+//Test PLSXBKC
+METHOD PLSXBKC() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+
+
+	oResult:activate()
+	
+	PLSXBKC()
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

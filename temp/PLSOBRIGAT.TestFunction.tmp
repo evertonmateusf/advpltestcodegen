@@ -1,0 +1,20 @@
+
+//Test PLSOBRIGAT
+METHOD PLSOBRIGAT() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local aGets := {}
+    Local aTela := {}
+    Local tObg := Nil
+    Local lPlsServer := .F.
+    Local aMsgErro := {}
+
+	oResult:activate()
+	
+	PLSOBRIGAT(aGets,aTela,tObg,lPlsServer,aMsgErro)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

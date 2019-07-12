@@ -1,0 +1,16 @@
+
+//Test PLSINTAUT
+METHOD PLSINTAUT() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodOpe := ''
+
+	oResult:activate()
+	
+	PLSINTAUT(cCodOpe)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

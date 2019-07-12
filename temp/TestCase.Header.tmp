@@ -1,0 +1,7 @@
+#Include 'Protheus.ch'
+
+CLASS FunctionsTestCase FROM FWDefaultTestCase
+	
+	METHOD FunctionsTestCase()
+	METHOD SetUpClass()
+	METHOD TearDownClass()

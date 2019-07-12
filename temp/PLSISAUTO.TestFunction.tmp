@@ -1,0 +1,16 @@
+
+//Test PLSISAUTO
+METHOD PLSISAUTO() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+
+
+	oResult:activate()
+	
+	PLSISAUTO()
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

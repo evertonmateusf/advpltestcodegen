@@ -1,0 +1,17 @@
+
+//Test PLSVLDINT
+METHOD PLSVLDINT() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodInt := ''
+    Local lPlsServer := .F.
+
+	oResult:activate()
+	
+	PLSVLDINT(cCodInt,lPlsServer)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

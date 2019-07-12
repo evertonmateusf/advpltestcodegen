@@ -1,0 +1,16 @@
+
+//Test PLRELCOS
+METHOD PLRELCOS() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodUsr := ''
+
+	oResult:activate()
+	
+	PLRELCOS(cCodUsr)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

@@ -1,0 +1,17 @@
+
+//Test PLSINTVLD
+METHOD PLSINTVLD() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodInt := ''
+    Local cCodOpe := ''
+
+	oResult:activate()
+	
+	PLSINTVLD(cCodInt,cCodOpe)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

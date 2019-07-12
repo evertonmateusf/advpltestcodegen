@@ -1,0 +1,21 @@
+
+//Test PLPROFSAUD
+METHOD PLPROFSAUD() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+    Local cCodRda := ''
+    Local cCodLoc := ''
+    Local cBusca := ''
+    Local cTipoBusca := ''
+    Local nTp := 0
+    Local cTipGui := ''
+
+	oResult:activate()
+	
+	PLPROFSAUD(cCodRda,cCodLoc,cBusca,cTipoBusca,nTp,cTipGui)
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

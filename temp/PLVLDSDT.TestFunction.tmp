@@ -1,0 +1,16 @@
+
+//Test PLVLDSDT
+METHOD PLVLDSDT() CLASS FunctionsTestCase
+
+	Local oResult := FWTestHelper():New()
+
+
+
+	oResult:activate()
+	
+	PLVLDSDT()
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult

@@ -1,0 +1,12 @@
+#include "PROTHEUS.CH"
+
+CLASS ${prefix}${className}TestGroup FROM FWDefaultTestSuite
+
+	METHOD ${prefix}${className}TestGroup() CONSTRUCTOR
+	
+ENDCLASS
+
+METHOD ${prefix}${className}TestGroup() CLASS ${prefix}${className}TestGroup
+	_Super:FWDefaultTestSuite()
+	Self:AddTestCase(${prefix}${className}TestCase():${prefix}${className}TestCase() )
+Return
