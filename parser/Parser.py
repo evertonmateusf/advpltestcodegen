@@ -16,6 +16,12 @@ def main(argv):
     printer = AdvplKeyPrinter()
     walker = ParseTreeWalker()
     walker.walk(printer, tree)
+    for function in printer.funcoes:
+        print(function.type + ' ' + function.name) 
+        for parameter in function.parameters:
+            print(parameter)
+        for variable in function.variables:
+            print(variable)
  
 if __name__ == '__main__':
     main(sys.argv)

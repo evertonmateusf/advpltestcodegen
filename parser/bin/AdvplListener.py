@@ -1,4 +1,4 @@
-# Generated from C:\prjs\advpltestcodegen\parser\grammar\Advpl.g4 by ANTLR 4.7.2
+# Generated from Advpl.g4 by ANTLR 4.7.2
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .AdvplParser import AdvplParser
@@ -17,12 +17,12 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#directives.
-    def enterDirectives(self, ctx:AdvplParser.DirectivesContext):
+    # Enter a parse tree produced by AdvplParser#preprocessorDeclaration.
+    def enterPreprocessorDeclaration(self, ctx:AdvplParser.PreprocessorDeclarationContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#directives.
-    def exitDirectives(self, ctx:AdvplParser.DirectivesContext):
+    # Exit a parse tree produced by AdvplParser#preprocessorDeclaration.
+    def exitPreprocessorDeclaration(self, ctx:AdvplParser.PreprocessorDeclarationContext):
         pass
 
 
@@ -35,30 +35,12 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#ifDef.
-    def enterIfDef(self, ctx:AdvplParser.IfDefContext):
+    # Enter a parse tree produced by AdvplParser#ifdef.
+    def enterIfdef(self, ctx:AdvplParser.IfdefContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#ifDef.
-    def exitIfDef(self, ctx:AdvplParser.IfDefContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#elseDef.
-    def enterElseDef(self, ctx:AdvplParser.ElseDefContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#elseDef.
-    def exitElseDef(self, ctx:AdvplParser.ElseDefContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#endifDef.
-    def enterEndifDef(self, ctx:AdvplParser.EndifDefContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#endifDef.
-    def exitEndifDef(self, ctx:AdvplParser.EndifDefContext):
+    # Exit a parse tree produced by AdvplParser#ifdef.
+    def exitIfdef(self, ctx:AdvplParser.IfdefContext):
         pass
 
 
@@ -71,12 +53,30 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#undefineDeclaration.
-    def enterUndefineDeclaration(self, ctx:AdvplParser.UndefineDeclarationContext):
+    # Enter a parse tree produced by AdvplParser#sources.
+    def enterSources(self, ctx:AdvplParser.SourcesContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#undefineDeclaration.
-    def exitUndefineDeclaration(self, ctx:AdvplParser.UndefineDeclarationContext):
+    # Exit a parse tree produced by AdvplParser#sources.
+    def exitSources(self, ctx:AdvplParser.SourcesContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#modifiersFunction.
+    def enterModifiersFunction(self, ctx:AdvplParser.ModifiersFunctionContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#modifiersFunction.
+    def exitModifiersFunction(self, ctx:AdvplParser.ModifiersFunctionContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#staticVariable.
+    def enterStaticVariable(self, ctx:AdvplParser.StaticVariableContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#staticVariable.
+    def exitStaticVariable(self, ctx:AdvplParser.StaticVariableContext):
         pass
 
 
@@ -89,12 +89,30 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by AdvplParser#fromClass.
+    def enterFromClass(self, ctx:AdvplParser.FromClassContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#fromClass.
+    def exitFromClass(self, ctx:AdvplParser.FromClassContext):
+        pass
+
+
     # Enter a parse tree produced by AdvplParser#dataDefinition.
     def enterDataDefinition(self, ctx:AdvplParser.DataDefinitionContext):
         pass
 
     # Exit a parse tree produced by AdvplParser#dataDefinition.
     def exitDataDefinition(self, ctx:AdvplParser.DataDefinitionContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#serializabledataDefinition.
+    def enterSerializabledataDefinition(self, ctx:AdvplParser.SerializabledataDefinitionContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#serializabledataDefinition.
+    def exitSerializabledataDefinition(self, ctx:AdvplParser.SerializabledataDefinitionContext):
         pass
 
 
@@ -107,15 +125,6 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#modifiersMethod.
-    def enterModifiersMethod(self, ctx:AdvplParser.ModifiersMethodContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#modifiersMethod.
-    def exitModifiersMethod(self, ctx:AdvplParser.ModifiersMethodContext):
-        pass
-
-
     # Enter a parse tree produced by AdvplParser#methodBody.
     def enterMethodBody(self, ctx:AdvplParser.MethodBodyContext):
         pass
@@ -125,48 +134,138 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by AdvplParser#restServiceDeclaration.
+    def enterRestServiceDeclaration(self, ctx:AdvplParser.RestServiceDeclarationContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#restServiceDeclaration.
+    def exitRestServiceDeclaration(self, ctx:AdvplParser.RestServiceDeclarationContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#restmethodDefinition.
+    def enterRestmethodDefinition(self, ctx:AdvplParser.RestmethodDefinitionContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#restmethodDefinition.
+    def exitRestmethodDefinition(self, ctx:AdvplParser.RestmethodDefinitionContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#restmethodBody.
+    def enterRestmethodBody(self, ctx:AdvplParser.RestmethodBodyContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#restmethodBody.
+    def exitRestmethodBody(self, ctx:AdvplParser.RestmethodBodyContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsServiceDeclaration.
+    def enterWsServiceDeclaration(self, ctx:AdvplParser.WsServiceDeclarationContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsServiceDeclaration.
+    def exitWsServiceDeclaration(self, ctx:AdvplParser.WsServiceDeclarationContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsdataDefinition.
+    def enterWsdataDefinition(self, ctx:AdvplParser.WsdataDefinitionContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsdataDefinition.
+    def exitWsdataDefinition(self, ctx:AdvplParser.WsdataDefinitionContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsmethodDefinition.
+    def enterWsmethodDefinition(self, ctx:AdvplParser.WsmethodDefinitionContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsmethodDefinition.
+    def exitWsmethodDefinition(self, ctx:AdvplParser.WsmethodDefinitionContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsmethodBody.
+    def enterWsmethodBody(self, ctx:AdvplParser.WsmethodBodyContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsmethodBody.
+    def exitWsmethodBody(self, ctx:AdvplParser.WsmethodBodyContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsReceive.
+    def enterWsReceive(self, ctx:AdvplParser.WsReceiveContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsReceive.
+    def exitWsReceive(self, ctx:AdvplParser.WsReceiveContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsSend.
+    def enterWsSend(self, ctx:AdvplParser.WsSendContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsSend.
+    def exitWsSend(self, ctx:AdvplParser.WsSendContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsDataType.
+    def enterWsDataType(self, ctx:AdvplParser.WsDataTypeContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsDataType.
+    def exitWsDataType(self, ctx:AdvplParser.WsDataTypeContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsServiceClientDeclaration.
+    def enterWsServiceClientDeclaration(self, ctx:AdvplParser.WsServiceClientDeclarationContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsServiceClientDeclaration.
+    def exitWsServiceClientDeclaration(self, ctx:AdvplParser.WsServiceClientDeclarationContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsmethodClientDefinition.
+    def enterWsmethodClientDefinition(self, ctx:AdvplParser.WsmethodClientDefinitionContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsmethodClientDefinition.
+    def exitWsmethodClientDefinition(self, ctx:AdvplParser.WsmethodClientDefinitionContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsmethodClientBody.
+    def enterWsmethodClientBody(self, ctx:AdvplParser.WsmethodClientBodyContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsmethodClientBody.
+    def exitWsmethodClientBody(self, ctx:AdvplParser.WsmethodClientBodyContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#endWSMethod.
+    def enterEndWSMethod(self, ctx:AdvplParser.EndWSMethodContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#endWSMethod.
+    def exitEndWSMethod(self, ctx:AdvplParser.EndWSMethodContext):
+        pass
+
+
     # Enter a parse tree produced by AdvplParser#funcDeclaration.
     def enterFuncDeclaration(self, ctx:AdvplParser.FuncDeclarationContext):
         pass
 
     # Exit a parse tree produced by AdvplParser#funcDeclaration.
     def exitFuncDeclaration(self, ctx:AdvplParser.FuncDeclarationContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#superCall.
-    def enterSuperCall(self, ctx:AdvplParser.SuperCallContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#superCall.
-    def exitSuperCall(self, ctx:AdvplParser.SuperCallContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#initFuncOrMethod.
-    def enterInitFuncOrMethod(self, ctx:AdvplParser.InitFuncOrMethodContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#initFuncOrMethod.
-    def exitInitFuncOrMethod(self, ctx:AdvplParser.InitFuncOrMethodContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#variableDeclarationStatement.
-    def enterVariableDeclarationStatement(self, ctx:AdvplParser.VariableDeclarationStatementContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#variableDeclarationStatement.
-    def exitVariableDeclarationStatement(self, ctx:AdvplParser.VariableDeclarationStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#modifiersFunction.
-    def enterModifiersFunction(self, ctx:AdvplParser.ModifiersFunctionContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#modifiersFunction.
-    def exitModifiersFunction(self, ctx:AdvplParser.ModifiersFunctionContext):
         pass
 
 
@@ -188,21 +287,39 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#identifier.
-    def enterIdentifier(self, ctx:AdvplParser.IdentifierContext):
+    # Enter a parse tree produced by AdvplParser#initFuncOrMethod.
+    def enterInitFuncOrMethod(self, ctx:AdvplParser.InitFuncOrMethodContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#identifier.
-    def exitIdentifier(self, ctx:AdvplParser.IdentifierContext):
+    # Exit a parse tree produced by AdvplParser#initFuncOrMethod.
+    def exitInitFuncOrMethod(self, ctx:AdvplParser.InitFuncOrMethodContext):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#staticVariableDeclarationStatement.
-    def enterStaticVariableDeclarationStatement(self, ctx:AdvplParser.StaticVariableDeclarationStatementContext):
+    # Enter a parse tree produced by AdvplParser#staticVariableBeforeLocal.
+    def enterStaticVariableBeforeLocal(self, ctx:AdvplParser.StaticVariableBeforeLocalContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#staticVariableDeclarationStatement.
-    def exitStaticVariableDeclarationStatement(self, ctx:AdvplParser.StaticVariableDeclarationStatementContext):
+    # Exit a parse tree produced by AdvplParser#staticVariableBeforeLocal.
+    def exitStaticVariableBeforeLocal(self, ctx:AdvplParser.StaticVariableBeforeLocalContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#localVariableDeclarationStatement.
+    def enterLocalVariableDeclarationStatement(self, ctx:AdvplParser.LocalVariableDeclarationStatementContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#localVariableDeclarationStatement.
+    def exitLocalVariableDeclarationStatement(self, ctx:AdvplParser.LocalVariableDeclarationStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#publicVariableDeclarationStatement.
+    def enterPublicVariableDeclarationStatement(self, ctx:AdvplParser.PublicVariableDeclarationStatementContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#publicVariableDeclarationStatement.
+    def exitPublicVariableDeclarationStatement(self, ctx:AdvplParser.PublicVariableDeclarationStatementContext):
         pass
 
 
@@ -215,12 +332,39 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#publicVariableDeclarationStatement.
-    def enterPublicVariableDeclarationStatement(self, ctx:AdvplParser.PublicVariableDeclarationStatementContext):
+    # Enter a parse tree produced by AdvplParser#defaultStatement.
+    def enterDefaultStatement(self, ctx:AdvplParser.DefaultStatementContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#publicVariableDeclarationStatement.
-    def exitPublicVariableDeclarationStatement(self, ctx:AdvplParser.PublicVariableDeclarationStatementContext):
+    # Exit a parse tree produced by AdvplParser#defaultStatement.
+    def exitDefaultStatement(self, ctx:AdvplParser.DefaultStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#arrayInitializer.
+    def enterArrayInitializer(self, ctx:AdvplParser.ArrayInitializerContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#arrayInitializer.
+    def exitArrayInitializer(self, ctx:AdvplParser.ArrayInitializerContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#blockInitializer.
+    def enterBlockInitializer(self, ctx:AdvplParser.BlockInitializerContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#blockInitializer.
+    def exitBlockInitializer(self, ctx:AdvplParser.BlockInitializerContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#blockParams.
+    def enterBlockParams(self, ctx:AdvplParser.BlockParamsContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#blockParams.
+    def exitBlockParams(self, ctx:AdvplParser.BlockParamsContext):
         pass
 
 
@@ -242,60 +386,6 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#ifStatement.
-    def enterIfStatement(self, ctx:AdvplParser.IfStatementContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#ifStatement.
-    def exitIfStatement(self, ctx:AdvplParser.IfStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#forStatement.
-    def enterForStatement(self, ctx:AdvplParser.ForStatementContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#forStatement.
-    def exitForStatement(self, ctx:AdvplParser.ForStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#forInit.
-    def enterForInit(self, ctx:AdvplParser.ForInitContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#forInit.
-    def exitForInit(self, ctx:AdvplParser.ForInitContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#doStatement.
-    def enterDoStatement(self, ctx:AdvplParser.DoStatementContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#doStatement.
-    def exitDoStatement(self, ctx:AdvplParser.DoStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#whileStatement.
-    def enterWhileStatement(self, ctx:AdvplParser.WhileStatementContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#whileStatement.
-    def exitWhileStatement(self, ctx:AdvplParser.WhileStatementContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#docaseStatement.
-    def enterDocaseStatement(self, ctx:AdvplParser.DocaseStatementContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#docaseStatement.
-    def exitDocaseStatement(self, ctx:AdvplParser.DocaseStatementContext):
-        pass
-
-
     # Enter a parse tree produced by AdvplParser#returnStatement.
     def enterReturnStatement(self, ctx:AdvplParser.ReturnStatementContext):
         pass
@@ -305,12 +395,21 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#exitOrLoopStatement.
-    def enterExitOrLoopStatement(self, ctx:AdvplParser.ExitOrLoopStatementContext):
+    # Enter a parse tree produced by AdvplParser#returnvalues.
+    def enterReturnvalues(self, ctx:AdvplParser.ReturnvaluesContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#exitOrLoopStatement.
-    def exitExitOrLoopStatement(self, ctx:AdvplParser.ExitOrLoopStatementContext):
+    # Exit a parse tree produced by AdvplParser#returnvalues.
+    def exitReturnvalues(self, ctx:AdvplParser.ReturnvaluesContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#statementExpression.
+    def enterStatementExpression(self, ctx:AdvplParser.StatementExpressionContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#statementExpression.
+    def exitStatementExpression(self, ctx:AdvplParser.StatementExpressionContext):
         pass
 
 
@@ -350,21 +449,21 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#AliasAssignment.
-    def enterAliasAssignment(self, ctx:AdvplParser.AliasAssignmentContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#AliasAssignment.
-    def exitAliasAssignment(self, ctx:AdvplParser.AliasAssignmentContext):
-        pass
-
-
     # Enter a parse tree produced by AdvplParser#ExprLogical.
     def enterExprLogical(self, ctx:AdvplParser.ExprLogicalContext):
         pass
 
     # Exit a parse tree produced by AdvplParser#ExprLogical.
     def exitExprLogical(self, ctx:AdvplParser.ExprLogicalContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#AliasAssignment.
+    def enterAliasAssignment(self, ctx:AdvplParser.AliasAssignmentContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#AliasAssignment.
+    def exitAliasAssignment(self, ctx:AdvplParser.AliasAssignmentContext):
         pass
 
 
@@ -404,60 +503,6 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#arguments.
-    def enterArguments(self, ctx:AdvplParser.ArgumentsContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#arguments.
-    def exitArguments(self, ctx:AdvplParser.ArgumentsContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#expressionList.
-    def enterExpressionList(self, ctx:AdvplParser.ExpressionListContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#expressionList.
-    def exitExpressionList(self, ctx:AdvplParser.ExpressionListContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#optionalExpression.
-    def enterOptionalExpression(self, ctx:AdvplParser.OptionalExpressionContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#optionalExpression.
-    def exitOptionalExpression(self, ctx:AdvplParser.OptionalExpressionContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#arrayAccess.
-    def enterArrayAccess(self, ctx:AdvplParser.ArrayAccessContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#arrayAccess.
-    def exitArrayAccess(self, ctx:AdvplParser.ArrayAccessContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#methodAccessLoop.
-    def enterMethodAccessLoop(self, ctx:AdvplParser.MethodAccessLoopContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#methodAccessLoop.
-    def exitMethodAccessLoop(self, ctx:AdvplParser.MethodAccessLoopContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#primary_ref.
-    def enterPrimary_ref(self, ctx:AdvplParser.Primary_refContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#primary_ref.
-    def exitPrimary_ref(self, ctx:AdvplParser.Primary_refContext):
-        pass
-
-
     # Enter a parse tree produced by AdvplParser#Parens.
     def enterParens(self, ctx:AdvplParser.ParensContext):
         pass
@@ -482,15 +527,6 @@ class AdvplListener(ParseTreeListener):
 
     # Exit a parse tree produced by AdvplParser#Call.
     def exitCall(self, ctx:AdvplParser.CallContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#ClassConstructor.
-    def enterClassConstructor(self, ctx:AdvplParser.ClassConstructorContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#ClassConstructor.
-    def exitClassConstructor(self, ctx:AdvplParser.ClassConstructorContext):
         pass
 
 
@@ -521,12 +557,30 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by AdvplParser#ClassConstructor.
+    def enterClassConstructor(self, ctx:AdvplParser.ClassConstructorContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#ClassConstructor.
+    def exitClassConstructor(self, ctx:AdvplParser.ClassConstructorContext):
+        pass
+
+
     # Enter a parse tree produced by AdvplParser#Var.
     def enterVar(self, ctx:AdvplParser.VarContext):
         pass
 
     # Exit a parse tree produced by AdvplParser#Var.
     def exitVar(self, ctx:AdvplParser.VarContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#Assume.
+    def enterAssume(self, ctx:AdvplParser.AssumeContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#Assume.
+    def exitAssume(self, ctx:AdvplParser.AssumeContext):
         pass
 
 
@@ -548,15 +602,6 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#MacroExecucao.
-    def enterMacroExecucao(self, ctx:AdvplParser.MacroExecucaoContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#MacroExecucao.
-    def exitMacroExecucao(self, ctx:AdvplParser.MacroExecucaoContext):
-        pass
-
-
     # Enter a parse tree produced by AdvplParser#IfCall.
     def enterIfCall(self, ctx:AdvplParser.IfCallContext):
         pass
@@ -566,57 +611,84 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#Assume.
-    def enterAssume(self, ctx:AdvplParser.AssumeContext):
+    # Enter a parse tree produced by AdvplParser#MacroExecucao.
+    def enterMacroExecucao(self, ctx:AdvplParser.MacroExecucaoContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#Assume.
-    def exitAssume(self, ctx:AdvplParser.AssumeContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#NumberCHSay.
-    def enterNumberCHSay(self, ctx:AdvplParser.NumberCHSayContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#NumberCHSay.
-    def exitNumberCHSay(self, ctx:AdvplParser.NumberCHSayContext):
+    # Exit a parse tree produced by AdvplParser#MacroExecucao.
+    def exitMacroExecucao(self, ctx:AdvplParser.MacroExecucaoContext):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#atxCommand.
-    def enterAtxCommand(self, ctx:AdvplParser.AtxCommandContext):
+    # Enter a parse tree produced by AdvplParser#chIdentifier.
+    def enterChIdentifier(self, ctx:AdvplParser.ChIdentifierContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#atxCommand.
-    def exitAtxCommand(self, ctx:AdvplParser.AtxCommandContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#arrayInitializer.
-    def enterArrayInitializer(self, ctx:AdvplParser.ArrayInitializerContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#arrayInitializer.
-    def exitArrayInitializer(self, ctx:AdvplParser.ArrayInitializerContext):
+    # Exit a parse tree produced by AdvplParser#chIdentifier.
+    def exitChIdentifier(self, ctx:AdvplParser.ChIdentifierContext):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#blockInitializer.
-    def enterBlockInitializer(self, ctx:AdvplParser.BlockInitializerContext):
+    # Enter a parse tree produced by AdvplParser#identifier.
+    def enterIdentifier(self, ctx:AdvplParser.IdentifierContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#blockInitializer.
-    def exitBlockInitializer(self, ctx:AdvplParser.BlockInitializerContext):
+    # Exit a parse tree produced by AdvplParser#identifier.
+    def exitIdentifier(self, ctx:AdvplParser.IdentifierContext):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#blockParams.
-    def enterBlockParams(self, ctx:AdvplParser.BlockParamsContext):
+    # Enter a parse tree produced by AdvplParser#arrayAccess.
+    def enterArrayAccess(self, ctx:AdvplParser.ArrayAccessContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#blockParams.
-    def exitBlockParams(self, ctx:AdvplParser.BlockParamsContext):
+    # Exit a parse tree produced by AdvplParser#arrayAccess.
+    def exitArrayAccess(self, ctx:AdvplParser.ArrayAccessContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#methodAccessLoop.
+    def enterMethodAccessLoop(self, ctx:AdvplParser.MethodAccessLoopContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#methodAccessLoop.
+    def exitMethodAccessLoop(self, ctx:AdvplParser.MethodAccessLoopContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#arguments.
+    def enterArguments(self, ctx:AdvplParser.ArgumentsContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#arguments.
+    def exitArguments(self, ctx:AdvplParser.ArgumentsContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#expressionList.
+    def enterExpressionList(self, ctx:AdvplParser.ExpressionListContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#expressionList.
+    def exitExpressionList(self, ctx:AdvplParser.ExpressionListContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#optionalExpression.
+    def enterOptionalExpression(self, ctx:AdvplParser.OptionalExpressionContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#optionalExpression.
+    def exitOptionalExpression(self, ctx:AdvplParser.OptionalExpressionContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#expressionListComa.
+    def enterExpressionListComa(self, ctx:AdvplParser.ExpressionListComaContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#expressionListComa.
+    def exitExpressionListComa(self, ctx:AdvplParser.ExpressionListComaContext):
         pass
 
 
@@ -674,6 +746,60 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by AdvplParser#ifStatement.
+    def enterIfStatement(self, ctx:AdvplParser.IfStatementContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#ifStatement.
+    def exitIfStatement(self, ctx:AdvplParser.IfStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#forStatement.
+    def enterForStatement(self, ctx:AdvplParser.ForStatementContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#forStatement.
+    def exitForStatement(self, ctx:AdvplParser.ForStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#doStatement.
+    def enterDoStatement(self, ctx:AdvplParser.DoStatementContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#doStatement.
+    def exitDoStatement(self, ctx:AdvplParser.DoStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#exitOrLoopStatement.
+    def enterExitOrLoopStatement(self, ctx:AdvplParser.ExitOrLoopStatementContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#exitOrLoopStatement.
+    def exitExitOrLoopStatement(self, ctx:AdvplParser.ExitOrLoopStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#whileStatement.
+    def enterWhileStatement(self, ctx:AdvplParser.WhileStatementContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#whileStatement.
+    def exitWhileStatement(self, ctx:AdvplParser.WhileStatementContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#docaseStatement.
+    def enterDocaseStatement(self, ctx:AdvplParser.DocaseStatementContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#docaseStatement.
+    def exitDocaseStatement(self, ctx:AdvplParser.DocaseStatementContext):
+        pass
+
+
     # Enter a parse tree produced by AdvplParser#chStatement.
     def enterChStatement(self, ctx:AdvplParser.ChStatementContext):
         pass
@@ -683,48 +809,21 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#defineCh.
-    def enterDefineCh(self, ctx:AdvplParser.DefineChContext):
+    # Enter a parse tree produced by AdvplParser#arrobaDefine.
+    def enterArrobaDefine(self, ctx:AdvplParser.ArrobaDefineContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#defineCh.
-    def exitDefineCh(self, ctx:AdvplParser.DefineChContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#activateCh.
-    def enterActivateCh(self, ctx:AdvplParser.ActivateChContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#activateCh.
-    def exitActivateCh(self, ctx:AdvplParser.ActivateChContext):
+    # Exit a parse tree produced by AdvplParser#arrobaDefine.
+    def exitArrobaDefine(self, ctx:AdvplParser.ArrobaDefineContext):
         pass
 
 
-    # Enter a parse tree produced by AdvplParser#setsCh.
-    def enterSetsCh(self, ctx:AdvplParser.SetsChContext):
+    # Enter a parse tree produced by AdvplParser#forInit.
+    def enterForInit(self, ctx:AdvplParser.ForInitContext):
         pass
 
-    # Exit a parse tree produced by AdvplParser#setsCh.
-    def exitSetsCh(self, ctx:AdvplParser.SetsChContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#paramType.
-    def enterParamType(self, ctx:AdvplParser.ParamTypeContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#paramType.
-    def exitParamType(self, ctx:AdvplParser.ParamTypeContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#classException.
-    def enterClassException(self, ctx:AdvplParser.ClassExceptionContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#classException.
-    def exitClassException(self, ctx:AdvplParser.ClassExceptionContext):
+    # Exit a parse tree produced by AdvplParser#forInit.
+    def exitForInit(self, ctx:AdvplParser.ForInitContext):
         pass
 
 
@@ -734,15 +833,6 @@ class AdvplListener(ParseTreeListener):
 
     # Exit a parse tree produced by AdvplParser#crlf.
     def exitCrlf(self, ctx:AdvplParser.CrlfContext):
-        pass
-
-
-    # Enter a parse tree produced by AdvplParser#crlfEmpty.
-    def enterCrlfEmpty(self, ctx:AdvplParser.CrlfEmptyContext):
-        pass
-
-    # Exit a parse tree produced by AdvplParser#crlfEmpty.
-    def exitCrlfEmpty(self, ctx:AdvplParser.CrlfEmptyContext):
         pass
 
 
