@@ -2,6 +2,10 @@
 import sys, os, settings, csv, shutil
 from core.codeGenerators.codeGenerator import codeGenerator
 from string import Template
+from core.parser.bin.AdvplKeyPrinter import AdvplKeyPrinter
+from core.parser.bin.AdvplLexer import AdvplLexer
+from core.parser.bin.AdvplParser import AdvplParser
+from antlr4 import *
 
 class TestCaseCodeGenerator(codeGenerator):
 
@@ -15,50 +19,50 @@ class TestCaseCodeGenerator(codeGenerator):
         self.fileOut = "FunctionsTestCase.prw"
     
     def build(self):
-        localVars = []
-        params = []
-        methodName = []
-        addMethod = []
-        functionName = ''
-        functionCall = ''
         
-        storagePathFile = os.path.join(settings.PATH_FILESTORAGE ,  "functions.txt")
-        exists = os.path.isfile(storagePathFile) 
-        if exists:
-            with open(storagePathFile) as datafile:
-                data = csv.reader(datafile, delimiter=';')
-                for function in data:
-                    if len(function) > 0:
+        for files in os.walk(settings.PATH_SRC_ANALISE):
+            for file in files[2]:
+                self.fileOut = file[:-4] + "TestCase.prw"
+                input_stream = FileStream(settings.PATH_SRC_ANALISE+"\\"+file,"cp1252")
+                lexer = AdvplLexer(input_stream)
+                stream = CommonTokenStream(lexer)
+                parser = AdvplParser(stream)
+                tree = parser.program()
+                printer = AdvplKeyPrinter()
+                walker = ParseTreeWalker()
+                walker.walk(printer, tree)
+                methodName = []
+                addMethod = []
+                for function in printer.funcoes:
+                    if function.type != 'STATIC':
                         localVars = []
                         params = []
-                        if function[0] == "function":
-                            functionName = function[1]
-                            methodName.append(''.rjust(4)+"METHOD "+function[1]+"()")
-                            addMethod.append(''.rjust(4)+"self:AddTestMethod( '"+function[1]+"',,'Teste da funcao "+function[1]+".' ) ")
-                        elif function[0] == "variable":
-                            for variable in function:
-                                if variable.strip() != "" and variable != "variable":
-                                    localVars.append(''.rjust(4)+"Local " + variable + " := " + self.getTypeValue(variable[0:1].upper()) )
-                                    params.append(variable)
-                            functionCall = functionName + "(" + ",".join(params) +")"
-                            variables = {
-                                    'functionName': functionName,
-                                    'functionsCall': functionCall,
-                                    'localVars': '\n'.join(localVars),
-                                }
-                            self.fileOut = functionName + "TestCase.temp"
-                            self.makeTempFile(variables,functionName + '.TestFunction','TestFunction.template')
-                variables = {
-                        'methodName': '\n'.join(methodName),
-                        'addMethod': '\n'.join(addMethod)
-                    }
-                self.makeTempFile(variables,'TestCase.Header','TestCase.Header.template')
-                self.makeTempFile(variables,'TestCase.MethodName','TestCase.MethodName.template')
-                self.makeTempFile(variables,'TestCase.AddMethod','TestCase.AddMethod.template')
-                self.makeTempFile(variables,'TestCase.AddHeader','TestCase.AddHeader.template')
-                self.makeTempFile(variables,'TestCase.SetupClass','TestCase.SetupClass.template')
-            self.finishTestCase()
-        return
+                        functionCall = ''
+                        methodName.append(''.rjust(4)+"METHOD "+function.name+"()")
+                        addMethod.append(''.rjust(4)+"self:AddTestMethod( '"+function.name+"',,'Teste da funcao "+function.name+".' ) ")
+                        for parameter in function.parameters:
+                            #print(parameter)
+                            localVars.append(''.rjust(4)+"Local " + parameter + " := " + self.getTypeValue(parameter[0:1].upper()) )
+                            params.append(parameter)
+                        #for variable in function.variables:
+                            #print(variable)
+                        functionCall = function.name + "(" + ",".join(params) +")"
+                        variables = {
+                                'functionName': function.name,
+                                'functionsCall': functionCall,
+                                'localVars': '\n'.join(localVars),
+                            }
+                        self.makeTempFile(variables,function.name + '.TestFunction','TestFunction.template')
+                    variables = {
+                            'methodName': '\n'.join(methodName),
+                            'addMethod': '\n'.join(addMethod)
+                        }
+                    self.makeTempFile(variables,'TestCase.Header','TestCase.Header.template')
+                    self.makeTempFile(variables,'TestCase.MethodName','TestCase.MethodName.template')
+                    self.makeTempFile(variables,'TestCase.AddMethod','TestCase.AddMethod.template')
+                    self.makeTempFile(variables,'TestCase.AddHeader','TestCase.AddHeader.template')
+                    self.makeTempFile(variables,'TestCase.SetupClass','TestCase.SetupClass.template')
+                    self.finishTestCase()
 
     def makeTempFile(self, variables, file,template):
         fileIn = open(os.path.join(settings.PATH_TEMPLATE, template))
@@ -69,7 +73,6 @@ class TestCaseCodeGenerator(codeGenerator):
         f.close()
 
     def finishTestCase(self):
-        self.setFileOut()
         header = open(os.path.join(settings.PATH_TEMP, 'TestCase.Header.tmp')).read()
         setupClass = open(os.path.join(settings.PATH_TEMP, 'TestCase.SetupClass.tmp')).read()
         methodName = open(os.path.join(settings.PATH_TEMP, 'TestCase.MethodName.tmp')).read()

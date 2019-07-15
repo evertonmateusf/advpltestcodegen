@@ -44,10 +44,10 @@ class AdvplKeyPrinter(AdvplListener):
         self.funcaoAtual.addParameter(ctx.getText())
     
     # Enter a parse tree produced by AdvplParser#privateVariableDeclarationStatement.
-    def enterPrivateVariableDeclarationStatement(self, ctx):
-        print("Aqui é uma private!") 
+    # def enterPrivateVariableDeclarationStatement(self, ctx):
+    #     print("Aqui é uma private!") 
     
     # Exit a parse tree produced by AdvplParser#ifStatement.
-    def enterIfStatement(self, ctx):
-        print("Sai de um IF!" + ctx.getText() )
-        self.ultimoContxt = 'if'
+    # def enterIfStatement(self, ctx):
+    #     print("Sai de um IF!" + ctx.getText() )
+    #     self.ultimoContxt = 'if'
