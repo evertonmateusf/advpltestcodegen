@@ -1,30 +1,29 @@
 #include "PROTHEUS.CH"
 
-CLASS FunctionsTestSuite FROM FWDefaultTestSuite
+CLASS PLSA080TestSuite FROM FWDefaultTestSuite
 
 	DATA aParam
 	
-	METHOD FunctionsTestSuite() CONSTRUCTOR
+	METHOD PLSA080TestSuite() CONSTRUCTOR
 	METHOD SetUpSuite()
 	METHOD TearDownSuite()
 	
 ENDCLASS
 
-METHOD FunctionsTestSuite() CLASS FunctionsTestSuite
+METHOD PLSA080TestSuite() CLASS PLSA080TestSuite
 	_Super:FWDefaultTestSuite()
-	Self:AddTestSuite(FunctionsTestGroup():FunctionsTestGroup() )
+	Self:AddTestSuite(PLSA080TestGroup():PLSA080TestGroup() )
 Return
 
-METHOD SetUpSuite() CLASS FunctionsTestSuite
+METHOD SetUpSuite() CLASS PLSA080TestSuite
 Local oHelper := FWTestHelper():New()
 
-// oHelper:UTOpenFilial("T1","M SP 01")
 oHelper:UTOpenFilial("T1","M SP 01",,,"lima.everton","a")
 oHelper:Activate()
 
 Return oHelper
 
-METHOD TearDownSuite() CLASS FunctionsTestSuite
+METHOD TearDownSuite() CLASS PLSA080TestSuite
 	Local oHelper := FWTestHelper():New()
 	oHelper:UTRestParam()
 Return oHelper

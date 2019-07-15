@@ -1,21 +1,21 @@
 #include "PROTHEUS.CH"
 
-CLASS ${prefix}${className}TestSuite FROM FWDefaultTestSuite
+CLASS ${fonte}TestSuite FROM FWDefaultTestSuite
 
 	DATA aParam
 	
-	METHOD ${prefix}${className}TestSuite() CONSTRUCTOR
+	METHOD ${fonte}TestSuite() CONSTRUCTOR
 	METHOD SetUpSuite()
 	METHOD TearDownSuite()
 	
 ENDCLASS
 
-METHOD ${prefix}${className}TestSuite() CLASS ${prefix}${className}TestSuite
+METHOD ${fonte}TestSuite() CLASS ${fonte}TestSuite
 	_Super:FWDefaultTestSuite()
-	Self:AddTestSuite(${prefix}${className}TestGroup():${prefix}${className}TestGroup() )
+	Self:AddTestSuite(${fonte}TestGroup():${fonte}TestGroup() )
 Return
 
-METHOD SetUpSuite() CLASS ${prefix}${className}TestSuite
+METHOD SetUpSuite() CLASS ${fonte}TestSuite
 Local oHelper := FWTestHelper():New()
 
 oHelper:UTOpenFilial("${company}","${filial}")
@@ -23,7 +23,7 @@ oHelper:Activate()
 
 Return oHelper
 
-METHOD TearDownSuite() CLASS ${prefix}${className}TestSuite
+METHOD TearDownSuite() CLASS ${fonte}TestSuite
 	Local oHelper := FWTestHelper():New()
 	oHelper:UTRestParam()
 Return oHelper

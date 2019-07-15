@@ -1,6 +1,6 @@
 
 //Test ${functionName}
-METHOD ${functionName}() CLASS FunctionsTestCase
+METHOD ${functionName}() CLASS ${fonte}TestCase
 
 	Local oResult := FWTestHelper():New()
 

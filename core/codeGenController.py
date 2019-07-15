@@ -16,15 +16,16 @@ class codeGenController:
     def getGenerators(self):
         generators = []
         generators.append(TestCaseCodeGenerator.TestCaseCodeGenerator())
-        # generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator())
-        # generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator())
+        generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator())
+        generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator())
 
         return generators
 
     def build(self):
 
-        generator = self.getGenerators()
-        generator[0].build()
+        generators = self.getGenerators()
+        for generator in generators:
+            generator.build()
         return
 
     

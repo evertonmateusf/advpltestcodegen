@@ -1,0 +1,2 @@
+
+    self:AddTestMethod( 'PLSA080',,'Teste da funcao PLSA080.' ) 

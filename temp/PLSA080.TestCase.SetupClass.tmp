@@ -1,0 +1,13 @@
+	
+Return
+
+METHOD SetUpClass() CLASS PLSA080TestCase
+Return _Super:SetUpClass()
+
+METHOD TearDownClass() CLASS PLSA080TestCase
+	Local oResult := FWTestHelper():New()
+
+    oResult:UTRestParam(oResult:aParam)
+	DelClassIntf()
+	
+Return oResult

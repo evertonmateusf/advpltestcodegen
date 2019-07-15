@@ -13,16 +13,19 @@ class TestCaseCodeGenerator(codeGenerator):
         super().__init__(function=None)
         self.templateFile = 'TestCase.template' 
         self.srcPath = settings.PATH_SRC_TEST_CASES
+        self.fileOut = "TestCase.prw"
         return
 
     def setFileOut(self):
-        self.fileOut = "FunctionsTestCase.prw"
+        self.fileOut = "TestCase.prw"
     
     def build(self):
         
         for files in os.walk(settings.PATH_SRC_ANALISE):
             for file in files[2]:
-                self.fileOut = file[:-4] + "TestCase.prw"
+                methodName = []
+                addMethod = []
+                fonte = file[:-4]
                 input_stream = FileStream(settings.PATH_SRC_ANALISE+"\\"+file,"cp1252")
                 lexer = AdvplLexer(input_stream)
                 stream = CommonTokenStream(lexer)
@@ -31,8 +34,6 @@ class TestCaseCodeGenerator(codeGenerator):
                 printer = AdvplKeyPrinter()
                 walker = ParseTreeWalker()
                 walker.walk(printer, tree)
-                methodName = []
-                addMethod = []
                 for function in printer.funcoes:
                     if function.type != 'STATIC':
                         localVars = []
@@ -48,21 +49,23 @@ class TestCaseCodeGenerator(codeGenerator):
                             #print(variable)
                         functionCall = function.name + "(" + ",".join(params) +")"
                         variables = {
+                                'fonte': fonte,
                                 'functionName': function.name,
                                 'functionsCall': functionCall,
                                 'localVars': '\n'.join(localVars),
                             }
-                        self.makeTempFile(variables,function.name + '.TestFunction','TestFunction.template')
+                        self.makeTempFile(variables,fonte + '.' + function.name + '.TestFunction','TestFunction.template')
                     variables = {
+                            'fonte': fonte,
                             'methodName': '\n'.join(methodName),
                             'addMethod': '\n'.join(addMethod)
                         }
-                    self.makeTempFile(variables,'TestCase.Header','TestCase.Header.template')
-                    self.makeTempFile(variables,'TestCase.MethodName','TestCase.MethodName.template')
-                    self.makeTempFile(variables,'TestCase.AddMethod','TestCase.AddMethod.template')
-                    self.makeTempFile(variables,'TestCase.AddHeader','TestCase.AddHeader.template')
-                    self.makeTempFile(variables,'TestCase.SetupClass','TestCase.SetupClass.template')
-                    self.finishTestCase()
+                    self.makeTempFile(variables,fonte + '.' + 'TestCase.Header','TestCase.Header.template')
+                    self.makeTempFile(variables,fonte + '.' + 'TestCase.MethodName','TestCase.MethodName.template')
+                    self.makeTempFile(variables,fonte + '.' + 'TestCase.AddMethod','TestCase.AddMethod.template')
+                    self.makeTempFile(variables,fonte + '.' + 'TestCase.AddHeader','TestCase.AddHeader.template')
+                    self.makeTempFile(variables,fonte + '.' + 'TestCase.SetupClass','TestCase.SetupClass.template')
+                    self.finishTestCase(fonte)
 
     def makeTempFile(self, variables, file,template):
         fileIn = open(os.path.join(settings.PATH_TEMPLATE, template))
@@ -72,12 +75,12 @@ class TestCaseCodeGenerator(codeGenerator):
         f.write(result)
         f.close()
 
-    def finishTestCase(self):
-        header = open(os.path.join(settings.PATH_TEMP, 'TestCase.Header.tmp')).read()
-        setupClass = open(os.path.join(settings.PATH_TEMP, 'TestCase.SetupClass.tmp')).read()
-        methodName = open(os.path.join(settings.PATH_TEMP, 'TestCase.MethodName.tmp')).read()
-        addHeader = open(os.path.join(settings.PATH_TEMP, 'TestCase.AddHeader.tmp')).read()
-        addMethods = open(os.path.join(settings.PATH_TEMP, 'TestCase.AddMethod.tmp')).read()
+    def finishTestCase(self,fonte):
+        header = open(os.path.join(settings.PATH_TEMP, fonte + '.' + 'TestCase.Header.tmp')).read()
+        setupClass = open(os.path.join(settings.PATH_TEMP, fonte + '.' + 'TestCase.SetupClass.tmp')).read()
+        methodName = open(os.path.join(settings.PATH_TEMP, fonte + '.' + 'TestCase.MethodName.tmp')).read()
+        addHeader = open(os.path.join(settings.PATH_TEMP, fonte + '.' + 'TestCase.AddHeader.tmp')).read()
+        addMethods = open(os.path.join(settings.PATH_TEMP, fonte + '.' + 'TestCase.AddMethod.tmp')).read()
         testes = ''
         for files in os.walk(settings.PATH_TEMP):
             for file in files[2]:
@@ -89,7 +92,7 @@ class TestCaseCodeGenerator(codeGenerator):
                             testes += datafile.read()
         result = header+methodName+addHeader+addMethods+setupClass+testes
 
-        f = open(os.path.join(self.srcPath, self.fileOut) , "w+")
+        f = open(os.path.join(self.srcPath, fonte + self.fileOut) , "w+")
         f.write(result)
         f.close()
         return
