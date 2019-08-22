@@ -17,8 +17,8 @@ class testCaseCodeGenController:
     def getGenerators(self):
         generators = []
         generators.append(TestCaseCodeGenerator.TestCaseCodeGenerator())
-        # generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator())
-        # generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator())
+        generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator())
+        generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator())
 
         return generators
 

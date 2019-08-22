@@ -1,5 +1,0 @@
-
-ENDCLASS
-
-METHOD PLSA080TestCase() CLASS PLSA080TestCase
-	_Super:FWDefaultTestCase()

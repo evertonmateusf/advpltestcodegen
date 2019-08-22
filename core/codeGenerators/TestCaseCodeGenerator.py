@@ -27,6 +27,7 @@ class TestCaseCodeGenerator(codeGenerator):
                 addMethod = []
                 fonte = file[:-4]
                 input_stream = FileStream(settings.PATH_SRC_ANALISE+"\\"+file,"cp1252")
+                #input_stream = FileStream(settings.PATH_SRC_ANALISE+"\\"+file)
                 lexer = AdvplLexer(input_stream)
                 stream = CommonTokenStream(lexer)
                 parser = AdvplParser(stream)

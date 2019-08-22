@@ -1,7 +1,0 @@
-#Include 'Protheus.ch'
-
-CLASS PLSA080TestCase FROM FWDefaultTestCase
-	
-	METHOD PLSA080TestCase()
-	METHOD SetUpClass()
-	METHOD TearDownClass()
