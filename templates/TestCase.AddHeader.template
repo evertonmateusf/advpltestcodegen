@@ -1,0 +1,5 @@
+
+ENDCLASS
+
+METHOD ${fonte}TestCase() CLASS ${fonte}TestCase
+	_Super:FWDefaultTestCase()

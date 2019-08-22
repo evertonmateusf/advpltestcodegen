@@ -1,0 +1,13 @@
+	
+Return
+
+METHOD SetUpClass() CLASS ${fonte}TestCase
+Return _Super:SetUpClass()
+
+METHOD TearDownClass() CLASS ${fonte}TestCase
+	Local oResult := FWTestHelper():New()
+
+    oResult:UTRestParam(oResult:aParam)
+	DelClassIntf()
+	
+Return oResult

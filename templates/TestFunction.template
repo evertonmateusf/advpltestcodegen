@@ -1,0 +1,16 @@
+
+//Test ${functionName}
+METHOD ${functionName}() CLASS ${fonte}TestCase
+
+	Local oResult := FWTestHelper():New()
+
+${localVars}
+
+	oResult:activate()
+	
+	${functionsCall}
+
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult
