@@ -11,22 +11,22 @@ class TestCaseCodeGenerator(codeGenerator):
 
     def __init__ (self, function=None):
         super().__init__(function=None)
-        self.templateFile = 'TestCase.template' 
+        self.templateFile = 'TestCase.template'
         self.srcPath = settings.PATH_SRC_TEST_CASES
         self.fileOut = "TestCase.prw"
         return
 
     def setFileOut(self):
         self.fileOut = "TestCase.prw"
-    
+
     def build(self):
-        
+
         for files in os.walk(settings.PATH_SRC_ANALISE):
             for file in files[2]:
                 methodName = []
                 addMethod = []
                 fonte = file[:-4]
-                input_stream = FileStream(settings.PATH_SRC_ANALISE+"\\"+file,"cp1252")
+                input_stream = CaseInsensitiveFileStream(settings.PATH_SRC_ANALISE+"\\"+file,"cp1252")
                 #input_stream = FileStream(settings.PATH_SRC_ANALISE+"\\"+file)
                 lexer = AdvplLexer(input_stream)
                 stream = CommonTokenStream(lexer)
@@ -86,7 +86,7 @@ class TestCaseCodeGenerator(codeGenerator):
         for files in os.walk(settings.PATH_TEMP):
             for file in files[2]:
                 storagePathFile = os.path.join(settings.PATH_TEMP,file )
-                exists = os.path.isfile(storagePathFile) 
+                exists = os.path.isfile(storagePathFile)
                 if exists:
                     with open(storagePathFile) as datafile:
                         if 'TestFunction.tmp' in file:
@@ -102,7 +102,7 @@ class TestCaseCodeGenerator(codeGenerator):
 
     def getTypeValue(self,typeValue):
         value = "Nil"
-        
+
         if typeValue == "C":
             value = "''"
         elif typeValue == "D":
@@ -115,5 +115,28 @@ class TestCaseCodeGenerator(codeGenerator):
             value = ".F."
         elif typeValue == "X":
             value = "''"
-    
+
         return value
+
+import codecs
+from antlr4.InputStream import InputStream
+
+class CaseInsensitiveInputStream (InputStream):
+
+    def _loadString(self):
+        self._index = 0
+        self.data = [ord(c) for c in self.strdata.upper()]
+        self._size = len(self.data)
+
+
+class CaseInsensitiveFileStream(CaseInsensitiveInputStream):
+
+    def __init__(self, fileName:str, encoding:str='ascii', errors:str='strict'):
+        super().__init__(self.readDataFrom(fileName, encoding, errors))
+        self.fileName = fileName
+
+    def readDataFrom(self, fileName:str, encoding:str, errors:str='strict'):
+        # read binary to avoid line ending conversion
+        with open(fileName, 'rb') as file:
+            bytes = file.read()
+            return codecs.decode(bytes, encoding, errors)
