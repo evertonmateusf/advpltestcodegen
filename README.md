@@ -2,7 +2,7 @@
 Framework de geração de códigos ADVPL orientado a objetos.
 
 # Sobre o projeto
-O propósito desse projeto é utilizar gerar casos de testes a partir de fontes ADVPL de forma automática e cobrindo o maior número de cenários possível.
+O propósito desse projeto é gerar casos de testes a partir de fontes ADVPL de forma automática e cobrindo o maior número de cenários possível.
 
 # Compatibilidade / Ambientes homologados
 
