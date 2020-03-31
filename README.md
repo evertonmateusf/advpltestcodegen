@@ -10,7 +10,6 @@ O propósito desse projeto é gerar casos de testes a partir de fontes ADVPL de 
 * Pip instalado - Execute o arquivo get-pip.py
 * Baixar a ultima versão do antlr - https://www.antlr.org/download/antlr-4.8-complete.jar
 * Instalar dependência do antlr - pip3 install antlr4-python3-runtime=4.8
-* Gerar Lexer ADVPL - antlr-4.8-complete.jar -Dlanguage=Python3 C:\prjs\advpltestcodegen\core\parser\bin\Advpl.g4
 
 # Configuração de Ambiente
 
