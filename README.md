@@ -1,12 +1,8 @@
-# advplcodegen
-Framework de geração de códigos ADVPL orientado a objetos.
+# advpltestcodegen
+Ferramenta de geração de casos de testes a partir de análise estática de códigos ADVPL.
 
 # Sobre o projeto
 O propósito desse projeto é gerar casos de testes a partir de fontes ADVPL de forma automática e cobrindo o maior número de cenários possível.
-
-# Compatibilidade / Ambientes homologados
-
-* Python 3x 
 
 # Pré-requisitos
 
@@ -87,3 +83,5 @@ $ advplcodegen.py build
  Colabore com esse projeto, caso tenha algum problema no uso ou sugestão, #issue.
 <br>
 
+Agradecimentos:
+- [Izac](https://github.com/izacsc) 
