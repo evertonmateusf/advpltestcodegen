@@ -10,6 +10,7 @@ class AdvplKeyPrinter(AdvplListener):
 
     def enterFuncDeclaration(self, ctx):  
         #ctx.identifier.__
+        print(ctx.identifier().getText())
         function = AdvplFunction(ctx.identifier().getText())
         self.funcaoAtual = function
         self.ultimoContxt = 'funcao'
@@ -45,9 +46,39 @@ class AdvplKeyPrinter(AdvplListener):
     
     # Enter a parse tree produced by AdvplParser#privateVariableDeclarationStatement.
     # def enterPrivateVariableDeclarationStatement(self, ctx):
-    #     print("Aqui é uma private!") 
+        # print("Aqui é uma private!") 
     
     # Exit a parse tree produced by AdvplParser#ifStatement.
     # def enterIfStatement(self, ctx):
-    #     print("Sai de um IF!" + ctx.getText() )
-    #     self.ultimoContxt = 'if'
+    #     print("enterIfStatement")
+    #     # print(ctx.getText())
+    #     # self.ultimoContxt = 'if'
+
+    # # Enter a parse tree produced by AdvplParser#ifFunctioncall.
+    # def enterIfFunctioncall(self, ctx):
+    #     print("enterIfFunctioncall")
+    #     # print(ctx.getText())
+    
+    # def enterIfCall(self, ctx):
+    #     print("enterIfCall")
+    #     # print(ctx.getText())
+    
+    # def enterStatementExpression(self, ctx):
+    #     print("enterStatementExpression")
+    #     print(ctx.getText())
+
+    # def enterExprPrimary(self, ctx):
+    #     print("enterExprPrimary")
+    #     print(ctx.getText())
+
+    # def enterExpressionList(self, ctx):
+    #     print("enterExpressionList")
+    #     print(ctx.getText())
+
+    # def enterExprLogical(self, ctx):
+    #     print("enterExprLogical")
+    #     print(ctx.getText())
+
+    # def enterExprComp(self, ctx):
+    #     print("enterExprComp")
+    #     print(ctx.getText())

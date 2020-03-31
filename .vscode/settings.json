@@ -1,5 +1,5 @@
 {
-    "advpl.selectedEnvironment": "x64_congelada-local-dic-banco",
+    "advpl.selectedEnvironment": "congelada-local-dic-banco-x64",
     "advpl.debug_multiThread": false,
     "advpl.workspaceFolders": "c:\\prjs\\advpltestcodegen;",
     "python.pythonPath": "C:\\Users\\everton.mateus\\AppData\\Local\\Programs\\Python\\Python37-32\\python.exe"

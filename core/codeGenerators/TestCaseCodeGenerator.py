@@ -26,17 +26,23 @@ class TestCaseCodeGenerator(codeGenerator):
                 methodName = []
                 addMethod = []
                 fonte = file[:-4]
+                print("[" + datetime.datetime.now().ctime() + "]Lendo arquivo " + fonte)
                 input_stream = CaseInsensitiveFileStream(settings.PATH_SRC_ANALISE+"\\"+file,"cp1252")
                 #input_stream = FileStream(settings.PATH_SRC_ANALISE+"\\"+file)
                 lexer = AdvplLexer(input_stream)
                 stream = CommonTokenStream(lexer)
+
+                print("[" + datetime.datetime.now().ctime() + "]Fazendo parse do arquivo " + fonte)
                 parser = AdvplParser(stream)
                 tree = parser.program()
                 printer = AdvplKeyPrinter()
                 walker = ParseTreeWalker()
+                print("[" + datetime.datetime.now().ctime() + "]Analisando arquivo " + fonte)
                 walker.walk(printer, tree)
+                print("[" + datetime.datetime.now().ctime() + "]Gerando caso de teste do arquivo " + fonte)
                 for function in printer.funcoes:
-                    if function.type != 'STATIC':
+                    if function.type.upper() != 'STATIC':
+                        print("[" + datetime.datetime.now().ctime() + "]Gerando caso de teste da funcao " + function.name)
                         localVars = []
                         params = []
                         functionCall = ''
@@ -67,6 +73,8 @@ class TestCaseCodeGenerator(codeGenerator):
                     self.makeTempFile(variables,fonte + '.' + 'TestCase.AddHeader','TestCase.AddHeader.template')
                     self.makeTempFile(variables,fonte + '.' + 'TestCase.SetupClass','TestCase.SetupClass.template')
                     self.finishTestCase(fonte)
+                self.cleanTemp()
+                printer.funcoes.clear()
 
     def makeTempFile(self, variables, file,template):
         fileIn = open(os.path.join(settings.PATH_TEMPLATE, template))
@@ -75,7 +83,7 @@ class TestCaseCodeGenerator(codeGenerator):
         f = open(os.path.join(settings.PATH_TEMP, file + ".tmp") , "w+")
         f.write(result)
         f.close()
-
+    
     def finishTestCase(self,fonte):
         header = open(os.path.join(settings.PATH_TEMP, fonte + '.' + 'TestCase.Header.tmp')).read()
         setupClass = open(os.path.join(settings.PATH_TEMP, fonte + '.' + 'TestCase.SetupClass.tmp')).read()
@@ -97,6 +105,15 @@ class TestCaseCodeGenerator(codeGenerator):
         f.write(result)
         f.close()
         return
+    
+    def cleanTemp(self):
+        print("[" + datetime.datetime.now().ctime() + "]Deletando arquivos temporarios")
+        for files in os.walk(settings.PATH_TEMP):
+            for file in files[2]:
+                storagePathFile = os.path.join(settings.PATH_TEMP,file )
+                if os.path.isfile(storagePathFile):
+                    os.remove(storagePathFile)
+
     def getVariables(self,storagePathFile):
         return {}
 
@@ -120,6 +137,7 @@ class TestCaseCodeGenerator(codeGenerator):
 
 import codecs
 from antlr4.InputStream import InputStream
+import datetime
 
 class CaseInsensitiveInputStream (InputStream):
 

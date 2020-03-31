@@ -7,6 +7,8 @@ from pathlib import Path
 from core.codeGenerators import (TestCaseCodeGenerator,
                   TestGroupCodeGenerator, TestSuiteCodeGenerator,
                   )
+import settings
+import datetime
 
 class codeGenController:
 
@@ -26,6 +28,16 @@ class codeGenController:
         generators = self.getGenerators()
         for generator in generators:
             generator.build()
+        self.cleanTemp()
         return
+    
+    def cleanTemp(self):
+        print("[" + datetime.datetime.now().ctime() + "]Deletando arquivos temporarios")
+        for files in os.walk(settings.PATH_TEMP):
+            for file in files[2]:
+                storagePathFile = os.path.join(settings.PATH_TEMP,file )
+                if os.path.isfile(storagePathFile):
+                    os.remove(storagePathFile)
+         
 
     

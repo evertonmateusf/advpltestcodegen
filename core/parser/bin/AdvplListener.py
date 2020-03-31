@@ -1,4 +1,4 @@
-# Generated from Advpl.g4 by ANTLR 4.7.2
+# Generated from C:\prjs\advpltestcodegen\core\parser\bin\Advpl.g4 by ANTLR 4.8
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .AdvplParser import AdvplParser
@@ -836,3 +836,5 @@ class AdvplListener(ParseTreeListener):
         pass
 
 
+
+del AdvplParser
