@@ -5,8 +5,9 @@ Ferramenta de geração de casos de testes a partir de análise estática de có
 O propósito desse projeto é gerar casos de testes a partir de fontes ADVPL de forma automática e cobrindo o maior número de cenários possível.  
 A ferramenta é desenvolvida em **Python** e usa o **ANTLR4** para realizar o parse dos fontes.  
 Agradecimentos:
-- [Everton de Souza Lima](https://github.com/oevertonsouza) 
-- [Izac](https://github.com/izacsc) 
+- [Everton de Souza Lima](https://github.com/oevertonsouza) - Manja muito de python e tem bastante influência na parte de gerar os fontes 
+- [Izac](https://github.com/izacsc) - Fatecano, programadô bão que ajudou a resolver umas tretas do projeto 
+- [Rodrigo Antonio Godinho da Silva](https://github.com/killerall) - Achei a gramática quase no jeito fuçando nos repositórios dele. Sem falar no plugin de ADVPL pro VsCode que ele fez que ajuda demais no dia-a-dia. 
 ## Tipos de casos de testes gerados:
 [ X ] Cobertura simples de linhas de WSCLIENT   
 [ ] Cobertura simples de linhas de FUNCTION  
