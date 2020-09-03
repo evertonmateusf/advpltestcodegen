@@ -1,4 +1,4 @@
-# Generated from C:\prjs\advpltestcodegen\core\parser\bin\Advpl.g4 by ANTLR 4.8
+# Generated from Advpl.g4 by ANTLR 4.8
 from antlr4 import *
 if __name__ is not None and "." in __name__:
     from .AdvplParser import AdvplParser
@@ -257,6 +257,15 @@ class AdvplListener(ParseTreeListener):
 
     # Exit a parse tree produced by AdvplParser#endWSMethod.
     def exitEndWSMethod(self, ctx:AdvplParser.EndWSMethodContext):
+        pass
+
+
+    # Enter a parse tree produced by AdvplParser#wsServiceClientStructDeclaration.
+    def enterWsServiceClientStructDeclaration(self, ctx:AdvplParser.WsServiceClientStructDeclarationContext):
+        pass
+
+    # Exit a parse tree produced by AdvplParser#wsServiceClientStructDeclaration.
+    def exitWsServiceClientStructDeclaration(self, ctx:AdvplParser.WsServiceClientStructDeclarationContext):
         pass
 
 

@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 import sys, os, settings, csv, re
-from core import managedb, storage
 from pathlib import Path
 from string import Template
 
 class project:
-    prefix  = settings.PROTHEUS_ENVIORMENT['default']['PREFIX']
 
     def __init__(self):
         return

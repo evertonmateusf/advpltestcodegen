@@ -37,7 +37,7 @@ defineDeclaration
 
 sources 
 	:
-	 classDeclaration| methodBody|funcDeclaration|wsServiceDeclaration|restmethodBody| wsmethodBody|staticVariable |wsServiceClientDeclaration|wsmethodClientBody |(crlf)|defineDeclaration|restServiceDeclaration|(ifdef crlf);
+	 classDeclaration| methodBody|funcDeclaration|wsServiceDeclaration|restmethodBody| wsmethodBody|staticVariable |wsServiceClientDeclaration|wsmethodClientBody|wsServiceClientStructDeclaration|(crlf)|defineDeclaration|restServiceDeclaration|(ifdef crlf);
 
 
 modifiersFunction  
@@ -54,7 +54,7 @@ staticVariable
 	:	STATIC localVariableDeclarationStatement 
 	;
 //-----------------------------------------------------------
-// Defin„o da classe
+// Definùo da classe
 //-----------------------------------------------------------
 classDeclaration:
                   CLASS identifier CAMELCASE? fromClass?  crlf
@@ -75,7 +75,7 @@ methodBody:
                  	initFuncOrMethod?   block 	
 ;
 //-----------------------------------------------------------
-// Defin„o de REST
+// Definùo de REST
 //-----------------------------------------------------------
 
 restServiceDeclaration:
@@ -103,7 +103,7 @@ restmethodBody:
             ;
 
 //-----------------------------------------------------------
-// Defin„o de WebService
+// Definùo de WebService
 //-----------------------------------------------------------
 
 wsServiceDeclaration:
@@ -126,7 +126,7 @@ wsReceive: WSRECEIVE formalParameters;
 wsSend: WSSEND formalParameters ;
 wsDataType: identifier (OF identifier)?;
 //-----------------------------------------------------------
-// Defin„o de WebServiceCliente
+// Definùo de WebServiceCliente
 //-----------------------------------------------------------
 
 wsServiceClientDeclaration:
@@ -138,14 +138,23 @@ wsmethodClientDefinition:
                 WSMETHOD identifier crlf;
 
 wsmethodClientBody:
-                 WSMETHOD identifier  wsSend ? wsReceive? WSCLIENT identifier crlf
+                 WSMETHOD identifier  wsSend ? formalParameters? wsReceive? WSCLIENT identifier crlf
                  
                  	initFuncOrMethod?  block 
             ;
 
 endWSMethod: END WSMETHOD;
 //-----------------------------------------------------------
-// Defin„o da Funcao
+// Definùo de WSDL Data Structure
+//-----------------------------------------------------------
+
+wsServiceClientStructDeclaration:
+                  WSSTRUCT identifier crlf
+                  (wsdataDefinition|wsmethodClientDefinition)*
+                  ENDWSSTRUCT crlf
+                ;
+//-----------------------------------------------------------
+// Definùo da Funcao
 //-----------------------------------------------------------
 
 funcDeclaration 
@@ -226,7 +235,7 @@ returnvalues
 		
 statementExpression
 	:expression ;	
-//Removido o Assigment pois, se deixamos o return ser um expression, e podemos comeÁar com expression como commando direto 
+//Removido o Assigment pois, se deixamos o return ser um expression, e podemos comeùar com expression como commando direto 
 //a gramatica na fica mais LL(*) e precisamos ativar o backtracer, que onera a performace.	
 expression
 	:  primary    #ExprPrimary
@@ -360,7 +369,7 @@ docaseStatement
 		;
                     
 //-----------------------------------------------    
-//InstruÁıes para ler o CH do protheus
+//Instruùùes para ler o CH do protheus
 //-----------------------------------------------    
 chStatement:
                (chIdentifier | arrobaDefine               )
@@ -805,6 +814,8 @@ FROM            :       'FROM';
 
 WSCLIENT        :       'WSCLIENT';
 WSSERVICE       :       'WSSERVICE';
+WSSTRUCT		:		'WSSTRUCT';
+ENDWSSTRUCT		:		'ENDWSSTRUCT';
 NAMESPACE       :       'NAMESPACE';
 ENDWSCLIENT     :       'ENDWSCLIENT';
 ENDWSSERVICE    :       'ENDWSSERVICE';

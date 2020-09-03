@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys, os, settings
-from core import managedb, codeGenController, project
+from core import codeGenController, project
 
 class ComandsController:
     
@@ -15,14 +15,14 @@ class ComandsController:
         run[1] = run[1].upper()
         command = run[1] if len(run) > 1 else ''
 
-        if command == 'TESTCONNECT':
-            mdb = managedb.ManagementDb()
-            mdb.testeConnect()
-            return
         if command == 'STARTPROJECT':
             self.project.startProject()
             return
         if command == 'BUILD':
+            self.project.createDir()
+            self.codeGen.build()
+            return
+        if command == 'GETTEMPLATE':
             self.project.createDir()
             self.codeGen.build()
             return

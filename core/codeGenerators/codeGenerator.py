@@ -6,11 +6,6 @@ from string import Template
 
 class codeGenerator():
 
-    prefix  = settings.PROTHEUS_ENVIORMENT['default']['PREFIX']
-    product = settings.PROTHEUS_ENVIORMENT['default']['PRODUCT']
-    productDescription = settings.PROTHEUS_ENVIORMENT['default']['PRDUCT_DESCRIPTION']
-    contact = settings.PROTHEUS_ENVIORMENT['default']['CONTACT']
-    segment = settings.PROTHEUS_ENVIORMENT['default']['SEGMENT']
     company = settings.PROTHEUS_ENVIORMENT['default']['COMPANY']
     filial = settings.PROTHEUS_ENVIORMENT['default']['FILIAL']
     columnsToAdd = []

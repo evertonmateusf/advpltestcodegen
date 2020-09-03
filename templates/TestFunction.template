@@ -6,6 +6,8 @@ METHOD ${functionName}() CLASS ${fonte}TestCase
 
 ${localVars}
 
+${initProperties}
+
 	oResult:activate()
 	
 	${functionsCall}

@@ -1,0 +1,18 @@
+
+//Test ${WsName}
+METHOD ${WsName}() CLASS ${fonte}TestCase
+
+	Local oResult  := FWTestHelper():New()
+    Local lOk := .T.
+    Local cError := ""
+    Local cWarning := ""
+    Local cXml := '<?xml version="1.0" encoding="UTF-8"?><TESTE></TESTE>'
+${localVars}
+
+	oResult:activate()
+${setPropertiesAndCallMethods}
+	
+	oResult:AssertTrue( oResult:lOk, "" )
+	oResult:deactivate()
+
+Return oResult
