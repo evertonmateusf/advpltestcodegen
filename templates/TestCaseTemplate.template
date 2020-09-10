@@ -1,0 +1,27 @@
+#Include 'Protheus.ch'
+
+CLASS ${fonte}TestCase FROM FWDefaultTestCase
+	
+	METHOD ${fonte}TestCase()
+    METHOD Teste_001()
+	
+ENDCLASS
+
+METHOD ${fonte}TestCase() CLASS ${fonte}TestCase
+	_Super:FWDefaultTestCase()
+
+    self:AddTestMethod( 'Teste_001',,'Teste do arquivo ${fonte}' ) 	
+Return
+
+METHOD Teste_001() CLASS ${fonte}TestCase
+
+	Local oResult  := FWTestHelper():New()
+    Local lOk := .T.
+
+	oResult:activate()
+
+
+	oResult:AssertTrue( lOk, "Erro ao executar caso de teste" )
+	oResult:deactivate()
+
+Return oResult

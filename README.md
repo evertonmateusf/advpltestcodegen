@@ -9,6 +9,7 @@ Agradecimentos:
 - [Izac](https://github.com/izacsc) - Fatecano, programadô bão que ajudou a resolver umas tretas do projeto 
 - [Rodrigo Antonio Godinho da Silva](https://github.com/killerall) - Achei a gramática quase no jeito fuçando nos repositórios dele. Sem falar no plugin de ADVPL pro VsCode que ele fez que ajuda demais no dia-a-dia. 
 ## Tipos de casos de testes gerados:
+[ X ] Gerar os arquivos básicos de caso de teste (TestCase, TestGroup e TestSuite)      
 [ X ] Cobertura simples de linhas de WSCLIENT   
 [ ] Cobertura simples de linhas de FUNCTION  
 [ ] Cobertura simples de linhas de STATIC FUNCTION  
@@ -94,7 +95,6 @@ $ python advplcodegen.py startproject
 Nota:<br>
 Após a execução desse comando os diretório do projeto assim como suas libs serão criadas no diretório `\src`.
 
-
 </br>
 <b>Comano build</b></br>
 Comando para gerar os fontes de teste.
@@ -108,6 +108,17 @@ O comando irá ler todos os fontes da pasta `\src\analise` e criará um testcase
 <br>
  Colabore com esse projeto, caso tenha algum problema no uso ou sugestão, #issue.
 <br>
+
+
+</br>
+<b>Comano buildtemplatetests</b></br>
+Comando para gerar os arquivos básicos de caso de teste (TestCase, TestGroup e TestSuite) com o mínimo que o desenvolvedor precisa para criar os casos de teste.
+</br>
+
+```console
+$ python advplcodegen.py buildtemplatetests
+```
+O comando irá ler todos os fontes da pasta `\src\analise` e criará um testcase, testgroup e testsuite para cada fonte lido.
 
 
 # Preparando os fontes para análise

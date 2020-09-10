@@ -4,9 +4,7 @@ import os
 import re
 import sys
 from pathlib import Path
-from core.codeGenerators import (TestCaseCodeGenerator,
-                  TestGroupCodeGenerator, TestSuiteCodeGenerator,
-                  )
+from core.codeGenerators import TestCaseCodeGenerator, TestCaseTemplateCodeGenerator, TestGroupCodeGenerator, TestSuiteCodeGenerator
 import settings
 import datetime
 
@@ -22,10 +20,25 @@ class codeGenController:
         generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator())
 
         return generators
+    
+    def getTestTemplateGenerators(self):
+        generators = []
+        generators.append(TestCaseTemplateCodeGenerator.TestCaseTemplateCodeGenerator())
+        generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator())
+        generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator())
+
+        return generators
 
     def build(self):
 
         generators = self.getGenerators()
+        for generator in generators:
+            generator.build()
+        self.cleanTemp()
+        return
+    
+    def buildTemplate(self):
+        generators = self.getTestTemplateGenerators()
         for generator in generators:
             generator.build()
         self.cleanTemp()

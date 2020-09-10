@@ -2,6 +2,7 @@
 import sys, os, settings, csv, shutil
 from core.codeGenerators.codeGenerator import codeGenerator
 from string import Template
+import datetime
 
 class TestSuiteCodeGenerator(codeGenerator):
 
@@ -25,6 +26,7 @@ class TestSuiteCodeGenerator(codeGenerator):
         for files in os.walk(settings.PATH_SRC_ANALISE):
             for file in files[2]:
                 fonte = file[:-4]
+                print("[" + datetime.datetime.now().ctime() + "]Gerando testSuite para o arquivo " + fonte)
                 fileIn = open(os.path.join(settings.PATH_TEMPLATE, self.templateFile))
                 temp = Template(fileIn.read())
                 variables = {

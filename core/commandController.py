@@ -5,7 +5,7 @@ from core import codeGenController, project
 class ComandsController:
     
     def __init__(self, firstComands=None, runOk=None, api=None):
-        self.firstComands = ['startproject','addcolumn','testconnect', 'addentity', 'list', 'build', 'testcase']
+        self.firstComands = ['STARTPROJECT','BUILD','BUILDTEMPLATETESTS']
         self.runOk = False
         self.codeGen = codeGenController.codeGenController()
         self.project = project.project()
@@ -22,13 +22,11 @@ class ComandsController:
             self.project.createDir()
             self.codeGen.build()
             return
-        if command == 'GETTEMPLATE':
-            self.project.createDir()
-            self.codeGen.build()
+        if command == 'BUILDTEMPLATETESTS':
+            self.codeGen.buildTemplate()
             return
-        if command == 'TESTEFUN':
-            print("TESTE")
-            return
+        print('Comando inválido.')
+        print('Comandos disponíveis: ' + ', '.join(self.firstComands))
         return
 
         

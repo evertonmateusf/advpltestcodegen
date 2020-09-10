@@ -4,27 +4,28 @@ from core.codeGenerators.codeGenerator import codeGenerator
 from string import Template
 import datetime
 
-class TestGroupCodeGenerator(codeGenerator):
+class TestCaseTemplateCodeGenerator(codeGenerator):
 
     def __init__ (self, function=None):
         super().__init__(function=None)
-        self.templateFile = 'TestGroup.template' 
-        self.fileOut = "TestGroup.prw"
-        self.srcPath = settings.PATH_SRC_TEST_GROUP
+        self.templateFile = 'TestCaseTemplate.template' 
+        self.fileOut = "TestCase.prw"
+        self.srcPath = settings.PATH_SRC_TEST_CASES
         return
 
     def setFileOut(self):
-        self.fileOut = "TestGroup.prw"
+        self.fileOut = "TestCase.prw"
     
     def getVariables(self,storagePathFile):
         variables = { }
         return variables
+    
     def build(self):
         
         for files in os.walk(settings.PATH_SRC_ANALISE):
             for file in files[2]:
                 fonte = file[:-4]
-                print("[" + datetime.datetime.now().ctime() + "]Gerando testGroup para o arquivo " + fonte)
+                print("[" + datetime.datetime.now().ctime() + "]Gerando testeCase para o arquivo " + fonte)
                 fileIn = open(os.path.join(settings.PATH_TEMPLATE, self.templateFile))
                 temp = Template(fileIn.read())
                 variables = {
