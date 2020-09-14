@@ -15,7 +15,6 @@ PATH_PROJECT = os.path.dirname(os.path.abspath(__file__))
 PATH_SRC = os.path.join(PATH_PROJECT, "src")
 PATH_TEMPLATE = os.path.join(PATH_PROJECT, "templates")
 PATH_TEMP = os.path.join(PATH_PROJECT, "temp")
-PATH_FILESTORAGE = os.path.join(PATH_PROJECT, "filestorage")
 
 #Inside src
 PATH_SRC_TEST = os.path.join(PATH_SRC, "test")

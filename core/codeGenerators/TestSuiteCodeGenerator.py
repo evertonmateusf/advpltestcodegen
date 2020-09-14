@@ -16,9 +16,8 @@ class TestSuiteCodeGenerator(codeGenerator):
     def setFileOut(self):
         self.fileOut = "TestSuite.prw"
     
-    def getVariables(self,storagePathFile):
-        variables = { 
-            }
+    def getVariables(self):
+        variables = { }
         return variables
 
     def build(self):

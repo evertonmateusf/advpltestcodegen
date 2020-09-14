@@ -16,7 +16,7 @@ class TestGroupCodeGenerator(codeGenerator):
     def setFileOut(self):
         self.fileOut = "TestGroup.prw"
     
-    def getVariables(self,storagePathFile):
+    def getVariables(self):
         variables = { }
         return variables
     def build(self):

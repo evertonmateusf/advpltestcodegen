@@ -16,7 +16,7 @@ class TestCaseTemplateCodeGenerator(codeGenerator):
     def setFileOut(self):
         self.fileOut = "TestCase.prw"
     
-    def getVariables(self,storagePathFile):
+    def getVariables(self):
         variables = { }
         return variables
     

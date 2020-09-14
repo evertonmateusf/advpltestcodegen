@@ -181,7 +181,7 @@ class TestCaseCodeGenerator(codeGenerator):
                 if os.path.isfile(storagePathFile):
                     os.remove(storagePathFile)
 
-    def getVariables(self,storagePathFile):
+    def getVariables(self):
         return {}
 
     def getTypeValue(self,typeValue):

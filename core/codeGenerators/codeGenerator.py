@@ -37,17 +37,13 @@ class codeGenerator():
         f.close()
         return
     
-    def getVariables(self,storagePathFile):
-        return('','')
+    def getVariables(self):
+        return {}
         
     def setFileOut(self):
         return
 
     def build(self):
         self.setFileOut()
-        storagePathFile = os.path.join(settings.PATH_FILESTORAGE ,  "functions.entity")
-        exists = os.path.isfile(storagePathFile) 
-        if exists:
-            variables = self.getVariables(storagePathFile)
-            self.writeFile(variables)
+        self.writeFile(self.getVariables())
         return
