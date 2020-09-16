@@ -69,7 +69,8 @@ Agradecimentos:
 1. Adicione os fontes que devem ser analisados na pasta `\src\analise`
 2. Execute o comando `advplcodegen.py -b` para gerar os casos de teste na pasta `\src\test`
 ```
-C:\prjs\advpltestcodegen>python advplcodegen.py build
+C:\prjs\advpltestcodegen>python advplcodegen.py -s
+C:\prjs\advpltestcodegen>python advplcodegen.py -b
 [Thu Sep  3 16:31:25 2020]Lendo arquivo WsClient_WSPLCADWEB
 [Thu Sep  3 16:31:25 2020]Fazendo parse do arquivo WsClient_WSPLCADWEB
 [Thu Sep  3 16:31:35 2020]Analisando arquivo WsClient_WSPLCADWEB
