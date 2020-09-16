@@ -63,11 +63,11 @@ Agradecimentos:
 # Configuração de Ambiente
 
 1. Faça o clone do projeto.
-2. Inicie o projeto com o comando `advplcodegen.py startproject`
+2. Inicie o projeto com o comando `advplcodegen.py -s`
 # Executando a criação dos casos de teste
 
 1. Adicione os fontes que devem ser analisados na pasta `\src\analise`
-2. Execute o comando `advplcodegen.py build` para gerar os casos de teste na pasta `\src\test`
+2. Execute o comando `advplcodegen.py -b` para gerar os casos de teste na pasta `\src\test`
 ```
 C:\prjs\advpltestcodegen>python advplcodegen.py build
 [Thu Sep  3 16:31:25 2020]Lendo arquivo WsClient_WSPLCADWEB
