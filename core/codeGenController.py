@@ -4,46 +4,51 @@ import os
 import re
 import sys
 from pathlib import Path
-from core.codeGenerators import TestCaseCodeGenerator, TestCaseTemplateCodeGenerator, TestGroupCodeGenerator, TestSuiteCodeGenerator
+from core.codeGenerators import WsClientTestCaseCodeGenerator, TestCaseTemplateCodeGenerator, TestGroupCodeGenerator, TestSuiteCodeGenerator
 import settings
 import datetime
 
 class codeGenController:
 
     def __init__(self):
+        self.inputfile = ''
+        self.inputpath = settings.PATH_SRC_ANALISE
+        self.outputpath = settings.PATH_SRC
+        if not os.path.isdir(settings.PATH_TEMP): os.mkdir(settings.PATH_TEMP)
         return
 
     def getGenerators(self):
         generators = []
-        generators.append(TestCaseCodeGenerator.TestCaseCodeGenerator())
-        generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator())
-        generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator())
+        # generators.append(TestCaseCodeGenerator.TestCaseCodeGenerator())
+        generators.append(WsClientTestCaseCodeGenerator.WsClientTestCaseCodeGenerator(os.path.join(self.outputpath, "cases")))
+        generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator(os.path.join(self.outputpath, "group")))
+        generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator(os.path.join(self.outputpath, "suite")))
 
         return generators
     
     def getTestTemplateGenerators(self):
         generators = []
-        generators.append(TestCaseTemplateCodeGenerator.TestCaseTemplateCodeGenerator())
-        generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator())
-        generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator())
+        generators.append(TestCaseTemplateCodeGenerator.TestCaseTemplateCodeGenerator(os.path.join(self.outputpath, "cases")))
+        generators.append(TestGroupCodeGenerator.TestGroupCodeGenerator(os.path.join(self.outputpath, "group")))
+        generators.append(TestSuiteCodeGenerator.TestSuiteCodeGenerator(os.path.join(self.outputpath, "suite")))
 
         return generators
+        
+    def processGenerators(self,generators):
+        for generator in generators:
+            generator.inputpath = self.inputpath
+            if self.inputfile == '':
+                generator.build()
+            else:
+                generator.processFile(self.inputfile)
+        self.cleanTemp()
 
     def build(self):
-
-        generators = self.getGenerators()
-        for generator in generators:
-            generator.build()
-        self.cleanTemp()
-        return
+        self.processGenerators(self.getGenerators())
     
     def buildTemplate(self):
-        generators = self.getTestTemplateGenerators()
-        for generator in generators:
-            generator.build()
-        self.cleanTemp()
-        return
-    
+        self.processGenerators(self.getTestTemplateGenerators())
+
     def cleanTemp(self):
         print("[" + datetime.datetime.now().ctime() + "]Deletando arquivos temporarios")
         for files in os.walk(settings.PATH_TEMP):

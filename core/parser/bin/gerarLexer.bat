@@ -1,1 +1,1 @@
-antlr-4.8-complete.jar -Dlanguage=Python3 Advpl.g4
+antlr-4.8-complete.jar -Dlanguage=Python3 ./gramaticas/Advpl.g4

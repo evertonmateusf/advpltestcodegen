@@ -23,7 +23,7 @@
             //"program": "C:\\prjs\\advpltestcodegen\\parser\\Parser.py",
             "program": "C:\\prjs\\advpltestcodegen\\advplcodegen.py",
             "console": "integratedTerminal",
-            "args": ["BUILD"]
+            "args": ["-b","-f","c:\\temp\\fontes\\WsClient_WSPLRECGLO.PRX"]
             //"args": ["C:\\prjs\\advpltestcodegen\\src\\analise\\PLSA080.PRW"]
         }
     ]

@@ -21,6 +21,6 @@ PATH_SRC_TEST = os.path.join(PATH_SRC, "test")
 PATH_SRC_ANALISE = os.path.join(PATH_SRC, "analise")
 
 #Inside Test
-PATH_SRC_TEST_CASES = os.path.join(PATH_SRC_TEST, "cases")
-PATH_SRC_TEST_GROUP = os.path.join(PATH_SRC_TEST, "group")
-PATH_SRC_TEST_SUITE = os.path.join(PATH_SRC_TEST, "suite")
+PATH_SRC_TEST_CASES = os.path.join(PATH_SRC, "cases")
+PATH_SRC_TEST_GROUP = os.path.join(PATH_SRC, "group")
+PATH_SRC_TEST_SUITE = os.path.join(PATH_SRC, "suite")

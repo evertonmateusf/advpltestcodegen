@@ -1,1 +1,1 @@
-pyinstaller advplcodegen.py
+pyinstaller advplcodegen.py --add-data="templates;templates" -y

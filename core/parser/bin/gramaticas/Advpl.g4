@@ -20,14 +20,7 @@ preprocessorDeclaration
 includeDeclaration
 	: INCLUDE (STRINGSIMPLE | STRING) 
 	;	
-/*ifdef:
-        (IFDEF | IFNDEF) expression crlf
-        block
-        (ELSEDEF crlf block) *
-        ENDIFDEF   
-;
-        
- */       
+    
 ifdef:
         ((IFDEF | IFNDEF) expression)
         | ELSEDEF | ENDIFDEF   ;
@@ -54,7 +47,7 @@ staticVariable
 	:	STATIC localVariableDeclarationStatement 
 	;
 //-----------------------------------------------------------
-// Definùo da classe
+// DefinÔøΩo da classe
 //-----------------------------------------------------------
 classDeclaration:
                   CLASS identifier CAMELCASE? fromClass?  crlf
@@ -75,7 +68,7 @@ methodBody:
                  	initFuncOrMethod?   block 	
 ;
 //-----------------------------------------------------------
-// Definùo de REST
+// DefinÔøΩo de REST
 //-----------------------------------------------------------
 
 restServiceDeclaration:
@@ -103,7 +96,7 @@ restmethodBody:
             ;
 
 //-----------------------------------------------------------
-// Definùo de WebService
+// DefinÔøΩo de WebService
 //-----------------------------------------------------------
 
 wsServiceDeclaration:
@@ -126,7 +119,7 @@ wsReceive: WSRECEIVE formalParameters;
 wsSend: WSSEND formalParameters ;
 wsDataType: identifier (OF identifier)?;
 //-----------------------------------------------------------
-// Definùo de WebServiceCliente
+// DefinÔøΩo de WebServiceCliente
 //-----------------------------------------------------------
 
 wsServiceClientDeclaration:
@@ -145,7 +138,7 @@ wsmethodClientBody:
 
 endWSMethod: END WSMETHOD;
 //-----------------------------------------------------------
-// Definùo de WSDL Data Structure
+// DefinÔøΩo de WSDL Data Structure
 //-----------------------------------------------------------
 
 wsServiceClientStructDeclaration:
@@ -154,7 +147,7 @@ wsServiceClientStructDeclaration:
                   ENDWSSTRUCT crlf
                 ;
 //-----------------------------------------------------------
-// Definùo da Funcao
+// DefinÔøΩo da Funcao
 //-----------------------------------------------------------
 
 funcDeclaration 
@@ -235,7 +228,7 @@ returnvalues
 		
 statementExpression
 	:expression ;	
-//Removido o Assigment pois, se deixamos o return ser um expression, e podemos comeùar com expression como commando direto 
+//Removido o Assigment pois, se deixamos o return ser um expression, e podemos comeÔøΩar com expression como commando direto 
 //a gramatica na fica mais LL(*) e precisamos ativar o backtracer, que onera a performace.	
 expression
 	:  primary    #ExprPrimary
@@ -369,7 +362,7 @@ docaseStatement
 		;
                     
 //-----------------------------------------------    
-//Instruùùes para ler o CH do protheus
+//InstruÔøΩÔøΩes para ler o CH do protheus
 //-----------------------------------------------    
 chStatement:
                (chIdentifier | arrobaDefine               )

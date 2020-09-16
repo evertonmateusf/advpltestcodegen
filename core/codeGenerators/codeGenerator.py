@@ -3,7 +3,6 @@ import sys, os, settings, csv, shutil
 from core import commandController, codeGenController
 from string import Template
 
-
 class codeGenerator():
 
     company = settings.PROTHEUS_ENVIORMENT['default']['COMPANY']
@@ -11,10 +10,13 @@ class codeGenerator():
     columnsToAdd = []
     templateFile = '' 
     fileOut = ''
-    srcPath = ''
+    outputPath = ''
+    inputfile = ''
+    inputpath = settings.PATH_SRC_ANALISE
+    outputpath = settings.PATH_SRC
 
-    def __init__ (self, function=None):
-        self.function = function
+    def __init__ (self, outputPath=None):
+        self.outputPath = outputPath
         self.variables = []
         self.templatePath = settings.PATH_TEMPLATE
         return
@@ -32,7 +34,7 @@ class codeGenerator():
         temp = Template(fileIn.read())
         result = temp.substitute(variables)
 
-        f = open(os.path.join(self.srcPath, self.fileOut) , "w+")
+        f = open(os.path.join(self.outputPath, self.fileOut) , "w+")
         f.write(result)
         f.close()
         return
@@ -44,6 +46,7 @@ class codeGenerator():
         return
 
     def build(self):
+        if not os.path.isdir(self.outputPath): os.mkdir(self.outputPath)
         self.setFileOut()
         self.writeFile(self.getVariables())
         return

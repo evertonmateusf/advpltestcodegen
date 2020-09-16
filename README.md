@@ -79,47 +79,26 @@ C:\prjs\advpltestcodegen>python advplcodegen.py build
 [Thu Sep  3 16:31:35 2020]Deletando arquivos temporarios
 ```
 
-
 # Lista de comandos
 
 Para execução dos comandos acesse a arvore do projeto onde se encontra o fonte `advplcodegen.py`, todos os comandos partirão desse fonte.</br></br>
 
-<b>Comando startproject</b><br>
-Para iniciar um projeto.
-</br>
-
 ```console
-$ python advplcodegen.py startproject
+$ python advplcodegen.py [-h] [-s] [-b] [-t] [-f INPUTFILE] [-i INPUTPATH]
+                       [-o OUTPUTPATH]
+
+  -h, --help            Exibe o help do projeto  
+  -s, --startproject    Cria a estrutura do projeto a partir do diretório atual  
+  -b, --build           Cria os fontes testcase, testgroup e testsuite para cobrir linhas de código de um fonte ADVPL. Por padrão irá ler os arquivos da pasta \src\analise. Os parâmetros -i ou -f para alterar a origem dos dados.   
+  -t, --buildtemplatetest  
+                        Cria os arquivos base testcase, testgroup e testsuite para um fonte ADVPL. Por padrão irá ler os arquivos da pasta \src\analise. Os parâmetros -i ou -f para alterar a origem dos dados.   
+  -f INPUTFILE, --inputfile INPUTFILE   
+                        Arquivo base que será lido para gerar os casos de teste.   
+  -i INPUTPATH, --inputpath INPUTPATH   
+                        Pasta com os arquivos base que serão lidos para gerar os casos de teste.   
+  -o OUTPUTPATH, --outputpath OUTPUTPATH
+                        Pasta de saída dos arquivos gerados.   
 ```
-
-Nota:<br>
-Após a execução desse comando os diretório do projeto assim como suas libs serão criadas no diretório `\src`.
-
-</br>
-<b>Comano build</b></br>
-Comando para gerar os fontes de teste.
-</br>
-
-```console
-$ python advplcodegen.py build
-```
-O comando irá ler todos os fontes da pasta `\src\analise` e criará um testcase, testgroup e testsuite para cada fonte lido.
-
-<br>
- Colabore com esse projeto, caso tenha algum problema no uso ou sugestão, #issue.
-<br>
-
-
-</br>
-<b>Comano buildtemplatetests</b></br>
-Comando para gerar os arquivos básicos de caso de teste (TestCase, TestGroup e TestSuite) com o mínimo que o desenvolvedor precisa para criar os casos de teste.
-</br>
-
-```console
-$ python advplcodegen.py buildtemplatetests
-```
-O comando irá ler todos os fontes da pasta `\src\analise` e criará um testcase, testgroup e testsuite para cada fonte lido.
-
 
 # Preparando os fontes para análise
 **Fontes de Classes e WSCLIENT não devem passar por esse processo de preparação**  
