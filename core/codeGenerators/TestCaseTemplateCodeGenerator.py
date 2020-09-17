@@ -9,6 +9,7 @@ class TestCaseTemplateCodeGenerator(codeGenerator):
     def __init__ (self, outputPath=None):
         super().__init__(outputPath=None)
         self.outputPath = settings.PATH_SRC_TEST_CASES if outputPath==None else outputPath
+        if not os.path.isdir(self.outputPath): os.mkdir(self.outputPath)
         self.templateFile = 'TestCaseTemplate.template' 
         self.fileOut = "TestCase.prw"
         return

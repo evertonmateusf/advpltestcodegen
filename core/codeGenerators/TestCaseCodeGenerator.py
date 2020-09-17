@@ -14,6 +14,7 @@ class TestCaseCodeGenerator(codeGenerator):
     def __init__ (self, outputPath=None):
         super().__init__(outputPath=None)
         self.outputPath = settings.PATH_SRC_TEST_CASES if outputPath==None else outputPath
+        if not os.path.isdir(self.outputPath): os.mkdir(self.outputPath)
         self.templateFile = 'TestCase.template'
         self.fileOut = "TestCase.prw"
         return
@@ -25,25 +26,29 @@ class TestCaseCodeGenerator(codeGenerator):
         if not os.path.isdir(self.outputPath): os.mkdir(self.outputPath)
         for files in os.walk(self.inputpath):
             for file in files[2]:
-                filepath = os.path.join(self.outputpath, file)
+                filepath = os.path.join(self.inputpath, file)
                 self.processFile(filepath)
 
     def processFile(self, filepath):
         file = os.path.basename(filepath)
         fonte = file[:-4]
         print("[" + datetime.datetime.now().ctime() + "]Lendo arquivo " + fonte)
-        input_stream = CaseInsensitiveFileStream(filepath,"cp1252")
-        lexer = AdvplLexer(input_stream)
-        stream = CommonTokenStream(lexer)
-        print("[" + datetime.datetime.now().ctime() + "]Fazendo parse do arquivo " + fonte)
-        parser = AdvplParser(stream)
-        tree = parser.program()
-        printer = AdvplKeyPrinter()
-        walker = ParseTreeWalker()
-        print("[" + datetime.datetime.now().ctime() + "]Analisando arquivo " + fonte)
-        walker.walk(printer, tree)
-        print("[" + datetime.datetime.now().ctime() + "]Gerando caso de teste do arquivo " + fonte)
-        self.applyFileRules(printer,fonte)
+        try:
+            input_stream = CaseInsensitiveFileStream(filepath,"cp1252")
+            lexer = AdvplLexer(input_stream)
+            stream = CommonTokenStream(lexer)
+            print("[" + datetime.datetime.now().ctime() + "]Fazendo parse do arquivo " + fonte)
+            parser = AdvplParser(stream)
+            tree = parser.program()
+            printer = AdvplKeyPrinter()
+            walker = ParseTreeWalker()
+            print("[" + datetime.datetime.now().ctime() + "]Analisando arquivo " + fonte)
+            walker.walk(printer, tree)
+            print("[" + datetime.datetime.now().ctime() + "]Gerando caso de teste do arquivo " + fonte)
+            self.applyFileRules(printer,fonte)
+        except:
+            print("[" + datetime.datetime.now().ctime() + "]Erro ao processar o arquivo " + fonte)
+            print(sys.exc_info()[0])
         self.cleanTemp()
 
     def printList(self, list):
@@ -75,7 +80,7 @@ class TestCaseCodeGenerator(codeGenerator):
                         if self.getTempFileName() in file:
                             testes += datafile.read()
         result = header+methodName+addHeader+addMethods+setupClass+testes
-
+        
         f = open(os.path.join(self.outputPath, fonte + self.fileOut) , "w+")
         f.write(result)
         f.close()

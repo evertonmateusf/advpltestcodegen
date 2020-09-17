@@ -9,6 +9,7 @@ class TestGroupCodeGenerator(codeGenerator):
     def __init__ (self, outputPath=None):
         super().__init__(outputPath=None)
         self.outputPath = settings.PATH_SRC_TEST_GROUP if outputPath==None else outputPath
+        if not os.path.isdir(self.outputPath): os.mkdir(self.outputPath)
         self.templateFile = 'TestGroup.template' 
         self.fileOut = "TestGroup.prw"
         return

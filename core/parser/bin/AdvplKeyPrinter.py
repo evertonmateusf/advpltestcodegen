@@ -6,7 +6,10 @@ class AdvplKeyPrinter(AdvplListener):
     wsList = []
     wsdata = None
     method = None
-    
+
+    def enterFormalParameter(self, ctx):
+        self.method[1].append(ctx.getText())
+
     def enterWsdataDefinition(self, ctx):
         # print(ctx.identifier().getText())
         self.wsdata = [ctx.identifier().getText(),[]]

@@ -24,7 +24,7 @@ class WsClientTestCaseCodeGenerator(TestCaseCodeGenerator):
                 localVars.append(''.rjust(4)+"Local oWs := " + ws.name + "():New() ")
                 setPropertiesAndCallMethods = []
                 textFather = ''.rjust(4)+" oWs"
-                self.initWsProperties(printer.wsList, ws, setPropertiesAndCallMethods, textFather)
+                self.initWsProperties(printer.wsList, ws, setPropertiesAndCallMethods, textFather,0)
                 variables = {
                         'fonte': fonte,
                         'WsName': ws.name,
@@ -45,15 +45,15 @@ class WsClientTestCaseCodeGenerator(TestCaseCodeGenerator):
             self.finishTestCase(fonte)
         printer.wsList.clear()
 
-    def initWsProperties(self, wsList, ws, setPropertiesAndCallMethods, textFather):
+    def initWsProperties(self, wsList, ws, setPropertiesAndCallMethods, textFather, lookAheadCount):
         callMethod = ''
         for wsProp in ws.properties:
             if self.isWebStruct(wsList,wsProp[1][0].upper()):
                 textSon = textFather + ":" + wsProp[0]
                 setPropertiesAndCallMethods.append( textSon + " := " + wsProp[1][0].upper() + "():new()")
                 for wsItem in wsList:
-                    if wsItem.name == wsProp[1][0].upper():
-                        self.initWsProperties(wsList, wsItem, setPropertiesAndCallMethods, textSon)
+                    if wsItem.name == wsProp[1][0].upper() and lookAheadCount < 20:
+                        self.initWsProperties(wsList, wsItem, setPropertiesAndCallMethods, textSon, lookAheadCount+1)
                         break
             else:
                 setPropertiesAndCallMethods.append( textFather + ":" + wsProp[0] + " := " + self.getPropertyTypeValue(wsProp[1][0].upper()))
@@ -72,7 +72,8 @@ class WsClientTestCaseCodeGenerator(TestCaseCodeGenerator):
     def isWebStruct(self, wsList, property):
         isWebStruct = False
         for wsItem in wsList:
-            if wsItem.name == property:
+            # print( "wsItem.name: " +  wsItem.name)
+            if wsItem.name == property and wsItem.type.upper() == 'WSSTRUCT':
                 isWebStruct = True
                 break
         return isWebStruct
